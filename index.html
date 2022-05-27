@@ -1,0 +1,1384 @@
+
+<!doctype html >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      class="">
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        window._currentDevice = 'desktop';
+        window.Parameters = window.Parameters || {
+            AjaxContainer: 'div.dmBody',
+            WrappingContainer: 'div.dmOuter',
+            HomeUrl: 'https://www.summitteamclean.com/',
+            AccountUUID: 'b358372e319843a998b4329824a72415',
+            SystemID: 'US_DIRECT_PRODUCTION',
+            SiteAlias: 'b8f1a169',
+            SiteId: '2490482',
+            SiteType: atob('RFVEQU9ORQ=='),
+            PublicationDate: 'Sun May 15 17:14:03 UTC 2022',
+            ExternalUid: null,
+            IsSiteMultilingual: false,
+            InitialPostAlias: '',
+            InitialDynamicItem: '',
+            InitialPageAlias: 'home',
+            InitialPageUuid: '4a968710e4764f23a94615f56580a44d',
+            InitialEncodedPageAlias: 'aG9tZQ==',
+            CurrentPageUrl: '',
+            IsCurrentHomePage: true,
+            AllowAjax: false,
+            AfterAjaxCommand: null,
+            HomeLinkText: 'Back To Home',
+            UseGalleryModule: false,
+            CurrentThemeName: 'Layout Theme',
+            ThemeVersion: '5900',
+            DefaultPageAlias: '',
+            RemoveDID: true,
+            WidgetStyleID: null,
+            IsHeaderFixed: false,
+            IsHeaderSkinny: false,
+            IsBfs: true,
+            StorePageAlias: 'null',
+            StorePagesUrls: 'e30=',
+            IsNewStore: 'false',
+            StorePath: '',
+            StoreId: 'null',
+            StoreVersion: 0,
+            StoreBaseUrl: '',
+            StoreCleanUrl: true,
+            StoreDisableScrolling: true,
+            NotificationSubDomain: 'summitteamclean',
+            HasCustomDomain: true,
+            showCookieNotification: false,
+            cookiesNotificationMarkup: 'null',
+            translatedPageUrl: '',
+            isFastMigrationSite: false,
+            sidebarPosition: 'NA',
+            currentLanguage: 'en',
+            NavItems: '{}',
+            errors: {
+                general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+                password: 'Incorrect name/password combination',
+                tryAgain: 'Try again'
+            },
+            NavigationAreaParams: {
+                ShowBackToHomeOnInnerPages: true,
+                NavbarSize: 4,
+                NavbarLiveHomePage: 'https://www.summitteamclean.com/',
+                BlockContainerSelector: '.dmBody',
+                NavbarSelector: '#dmNav:has(a)',
+                SubNavbarSelector: '#subnav_main'
+            },
+            hasCustomCode: true,
+            planID: '7',
+            customTemplateId: 'null',
+            siteTemplateId: 'null',
+            productId: 'DM_DIRECT',
+            disableTracking: false,
+            pageType: 'FROM_SCRATCH',
+            isRuntimeServer: true,
+            siteCacheKey: '1652637977730_b8f1a169',
+            siteInfo: null,
+        };
+
+        window.Parameters.LayoutID = {};
+        window.Parameters.LayoutID[window._currentDevice] = 6;
+        window.Parameters.LayoutVariationID = {};
+        window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Injecting site-wide to the head -->
+
+
+
+
+    <!-- End Injecting site-wide to the head -->
+
+    <!-- Inject secured cdn script -->
+
+
+    <!-- ========= Meta Tags ========= -->
+    <!-- PWA settings -->
+    <script>
+        function toHash(str) {
+            var hash = 5381, i = str.length;
+            while (i) {
+                hash = hash * 33 ^ str.charCodeAt(--i)
+            }
+            return hash >>> 0
+        }
+    </script>
+    <script>
+        (function (global) {
+            //const cacheKey = global.cacheKey;
+            const isOffline = 'onLine' in navigator && navigator.onLine === false;
+            const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+            if (isOffline) {
+                console.log('offline mode');
+            }
+            if (!hasServiceWorkerSupport) {
+                console.log('service worker is not supported');
+            }
+            if (hasServiceWorkerSupport && !isOffline) {
+                window.addEventListener('load', function () {
+                    const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+                    navigator.serviceWorker
+                        .register(serviceWorkerPath, { scope: './' })
+                        .then(
+                            function (registration) {
+                                // Registration was successful
+                                console.log(
+                                    'ServiceWorker registration successful with scope: ',
+                                    registration.scope
+                                );
+                            },
+                            function (err) {
+                                // registration failed :(
+                                console.log('ServiceWorker registration failed: ', err);
+                            }
+                        )
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                });
+
+                // helper function to refresh the page
+                var refreshPage = (function () {
+                    var refreshing;
+                    return function () {
+                        if (refreshing) return;
+                        // prevent multiple refreshes
+                        var refreshkey = 'refreshed' + location.href;
+                        var prevRefresh = localStorage.getItem(refreshkey);
+                        if (prevRefresh) {
+                            localStorage.removeItem(refreshkey);
+                            if (Date.now() - prevRefresh < 30000) {
+                                return; // dont go into a refresh loop
+                            }
+                        }
+                        refreshing = true;
+                        localStorage.setItem(refreshkey, Date.now());
+                        console.log('refereshing page');
+                        window.location.reload();
+                    };
+                })();
+
+                function messageServiceWorker(data) {
+                    return new Promise(function (resolve, reject) {
+                        if (navigator.serviceWorker.controller) {
+                            var worker = navigator.serviceWorker.controller;
+                            var messageChannel = new MessageChannel();
+                            messageChannel.port1.onmessage = replyHandler;
+                            worker.postMessage(data, [messageChannel.port2]);
+                            function replyHandler(event) {
+                                resolve(event.data);
+                            }
+                        } else {
+                            resolve();
+                        }
+                    });
+                }
+            }
+        })(window);
+    </script>
+    <!-- Add manifest -->
+    <!-- End PWA settings -->
+
+
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <meta charset="utf-8">
+
+    <link rel="canonical" href="https://www.summitteamclean.com/">
+
+    <meta id="view" name="viewport"
+          content=", initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover"/>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!--Add favorites icons-->
+
+    <link rel="icon" type="image/x-icon" href="https://static.cdn-website.com/runtime/favicon_d1_res.ico"/>
+
+    <!-- End favorite icons -->
+
+    <link rel="preconnect" href="https://lirp.cdn-website.com/" crossorigin />
+
+
+
+
+
+    <!-- render the required CSS and JS in the head section -->
+    <script>
+        window.SystemID = 'US_DIRECT_PRODUCTION';
+
+        if(!window.dmAPI) {
+            window.dmAPI = {
+                registerExternalRuntimeComponent: function() {
+                },
+                getCurrentDeviceType: function() {
+                    return window._currentDevice;
+                }
+            };
+        }
+
+        if (!window.requestIdleCallback) {
+            window.requestIdleCallback = function (fn) {
+                setTimeout(fn, 0);
+            }
+        }
+
+        function loadCSS(link) {
+            try {
+                var urlParams = new URLSearchParams(window.location.search);
+                var noCSS = !!urlParams.get('nocss');
+                var cssTimeout = urlParams.get('cssTimeout') || 0;
+
+                if (noCSS) {
+                    return;
+                }
+                requestIdleCallback(function () {
+                    window.setTimeout(function () {
+                        link.onload = null;
+                        link.rel = 'stylesheet';
+                        link.type = 'text/css'
+                    }, parseInt(cssTimeout, 10));
+                });
+            } catch (e) {/* Never fail - this is just a tool for measurements */}
+        }
+
+    </script>
+    <style id="forceCssIncludes">
+        /* This file is auto-generated from a `scss` file with the same name */
+
+        .videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}.dmMobileBody .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}.dmDesktopBody .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}#dm [data-show-on-page-only]{display:none!important}
+    </style>
+
+
+    <style id="hideAnimFix">
+        .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+            visibility: hidden;
+        }
+        .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+            visibility: hidden !important;
+        }
+    </style>
+
+
+
+    <style id="criticalCss">
+        @charset "UTF-8";.display_None,.dmPopupMask{display:none}*,.dmPopup,:after,:before{box-sizing:border-box}@font-face{font-family:'Arial Black';font-style:normal;font-weight:400;src:local("Arial Black"),local("ArialBlack"),url(https://dd-cdn.multiscreensite.com/fonts/additionalfonts/f5c444da86865f171.woff) format("woff");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215;font-display:swap}@font-face{font-family:FontAwesome;font-display:block;src:url(https://static-cdn.multiscreensite.com/fonts/fontawesome-webfont.eot?v=6);src:url(https://static-cdn.multiscreensite.com/fonts/fontawesome-webfont.eot?#iefix&v=6) format("embedded-opentype"),url(https://static-cdn.multiscreensite.com/fonts/fontawesome-webfont.woff?v=6) format("woff"),url(https://static-cdn.multiscreensite.com/fonts/fontawesome-webfont.ttf?v=6) format("truetype"),url(https://static-cdn.multiscreensite.com/fonts/fontawesome-webfont.svg#fontawesomeregular?v=6) format("svg");font-weight:400;font-style:normal;font-display:block}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/sourcesanspro/v21/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap}@font-face{font-family:Poppins;font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:block}@font-face{font-family:Poppins;font-style:italic;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/poppins/v20/pxiGyp8kv8JHgFVrJJLucHtA.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap}.dmInner{min-height:100vh!important;position:relative}.dmPopup,.dmPopupMask{position:fixed;left:0}@media (hover:none) and (pointer:coarse){#dmRoot #dm .dmOuter :not(.dmInner){background-attachment:scroll!important}}.dmDisplay_None{display:none!important}#dm .dmWidget .icon{font-size:26px}body:not(.noFontIcons) #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}.supportsFontIcons .hasFontIcon{background-image:none!important}.dmPopupMask{margin:0;width:10px;z-index:1000000999;top:0}#dmRoot .dmPopup{display:block}.dmPopup{padding:10px;text-align:left;margin:0 10px;top:10px;width:93%;z-index:1000009999!important;background:#f5f5f5;overflow-y:auto;height:100%;display:block}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{display:block;font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow.dmRespRowNoPadding,.dmContent,.dmInner ul:not(.defaultList),.dmRespRow.dmRespRowNoPadding,DIV.dmBody{padding:0}#dm .dmRespRow .dmRespColsWrapper{display:flex}.pswp{display:none;z-index:9999999999!important}#dm .hasBackgroundOverlay:not(.dmPopupPage):not(.layout-drawer){position:relative!important}#dm .hasBackgroundOverlay:not(.hasExtraLayerOverlay):before{display:block!important;position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;content:' '!important;border-radius:inherit}.align-center{margin-left:auto;margin-right:auto}.text-align-center{text-align:center}body.fix-mobile-scrolling{overflow:initial}#hcontainer[has-shadow=true]{position:relative;z-index:1}.dmRespRow .dmRespColsWrapper .dmRespCol[data-gallery-bg]{min-height:100px}#dmRoot{text-decoration-skip-ink:none}nav{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}hr{box-sizing:content-box;height:0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}button{font-family:inherit;font-size:100%;margin:0;line-height:normal;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{content:' ';display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}.dmHeader,.dmRespRow .dmRespCol>*{max-width:100%}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmDesktopBody .dmRespRow .large-2{position:relative;width:16.66667%}.dmDesktopBody .dmRespRow .large-5{position:relative;width:41.66667%}.dmDesktopBody .dmRespRow .large-7{position:relative;width:58.33333%}.dmDesktopBody .dmRespRow .large-10{position:relative;width:83.33333%}.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}#dm div.dmContent [class*=' icon-'],[class*=' icon-']{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=' icon-']:before{text-decoration:none;display:inline-block;speak:none}a [class*=' icon-']{display:inline}[class*=' icon-']{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-map-marker:before{content:'\f041'}.icon-angle-right:before{content:'\f105'}.icon-angle-down:before{content:'\f107'}[class*=' dm-common-icons-']{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-common-icons!important}.dm-common-icons-close:before{content:'\e901'}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm [data-buttonstyle=BORDER_SHORT] .dmWidget:not([data-buttonstyle]) .iconBg{display:none}.dmInner{min-width:768px!important;font-size:16px;background:#fff;color:#111}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-center{text-align:center!important}.dmNewParagraph[data-version] h2{margin-top:0;margin-bottom:0}.imageWidget a{font-style:italic;text-align:center}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{-webkit-overflow-scrolling:touch;width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h2,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}a,img,li,ul{vertical-align:top}#iscrollBody,#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#463939}.dmHeader{background:#fff;color:#111;text-align:center;position:relative;width:100%}DIV.dmBody{clear:both}.dmContent{margin:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}#innerBar{position:relative;height:36px;width:100%;font-size:20px;margin:0;z-index:80}.dmLargeBody .dmBody .dmRespRowsWrapper{background-color:#fff}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmLargeBody .imageWidget:not(.displayNone){display:inline-block;max-width:100%}.imageWidget:not(.displayNone) img{width:100%}#dm .dmRespColsWrapper{display:block}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol,.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:first-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:last-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}#innerBar.lineInnerBar{display:table;width:100%;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;font-size:20px;margin-top:30px;margin-bottom:30px;background-color:transparent;color:#111}#innerBar .titleLine{display:table-cell;vertical-align:middle;width:50%}.dmPageTitleRow:not(#innerBar){display:none}.titleLine hr{min-height:1px;background-color:rgba(17,17,17,.2)}.dmInner a{outline:0;vertical-align:inherit}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.dmStandardDesktop{display:block;margin:0 auto}body{background-color:#eee}#dm [data-buttonstyle] .dmWidget span.iconBg{color:#f7f7f7}.main-navigation.unifiednav{-js-display:flex;display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{-js-display:flex;display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{-js-display:flex;display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{-js-display:flex;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}.main-navigation.unifiednav.effect-float{padding:12px 15px}.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav .unifiednav__container[data-depth]{position:absolute;top:0;left:0;flex-direction:column;opacity:0;z-index:100;background-color:#faf9f9}.main-navigation.unifiednav .unifiednav__container[data-depth='0']{top:100%;transform:translateY(-10px)}.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container[data-depth='0']{left:15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap .unifiednav__container>.unifiednav__item-wrap{flex-direction:column}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{padding:15px 30px 15px 15px;margin:0}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{content:''!important;width:100%;height:0;color:#ececec;align-self:center;border:0 solid currentColor}.main-navigation.unifiednav[layout-sub=submenu_horizontal_2] .unifiednav__container[data-depth]{color:#999}.main-navigation.unifiednav[layout-sub=submenu_horizontal_2] .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{border-top-width:1px}#dm .dmBody div.u_1118855289 img,#dm .dmBody div.u_1801259258,#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{border-style:solid!important;border-width:0!important}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{display:initial;padding-left:10px;margin-left:0}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{justify-content:inherit}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .p_hfcontainer div.u_1724762301,#dm .p_hfcontainer nav.u_1077242103{min-width:25px!important;width:calc(100% - 0px)!important;max-width:100%!important}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]{background-color:transparent}#dm .main-navigation.unifiednav[layout-sub=submenu_horizontal_2] .unifiednav__container[data-depth]{background-color:#faf9f9}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{color:#d1d1d1}#dm div.dmContent h2,#dm div.dmInner,#dm div.dmInner .dmRespCol{color:rgba(17,17,17,1);font-style:normal}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container{flex-wrap:wrap;justify-content:inherit}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container .nav-item-text::before{text-align:left}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{content:''}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmStandardDesktop .dmHeader{background-color:#fff;max-width:100%}.standardHeaderLayout .dmHeader{float:none;display:block;height:auto}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column{min-height:100px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed):empty{min-height:1px}#dm div.dmRespCol>*{line-height:1.5}#dm .dmNewParagraph,#dm h2{direction:ltr;text-align:left}#dm div.dmContent h2{text-decoration:none;direction:ltr;font-size:24px}#dm [data-buttonstyle] div.dmInner #site_content .dmWidget span.icon{color:rgba(0,170,225,.73);fill:rgba(0,170,225,.73)}#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item,#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{color:rgba(5,151,223,1)!important}#dm [data-buttonstyle] div.dmInner #site_content .dmWidget .iconBg{display:none}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol{font-family:Poppins;font-weight:400;font-size:18px}#dm div.dmContent h2{font-family:Rubik;font-weight:700}#dm div.dmContent *{font-family:bellerosepro-lightlight,sans-serif!important}#dm .dmBody div.u_1910767681 h2,#dm .dmInner div.u_hcontainer{font-family:bellerosepro-lightlight!important}#dm .dmContent .dmRespRow{padding-top:15px}#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:18px!important}#dm .p_hfcontainer .u_1077242103.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1077242103.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before,#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item,#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{font-size:15px!important}#dm .p_hfcontainer div.u_1724762301 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer .u_1077242103.main-navigation.unifiednav .unifiednav__container[data-depth="0"]{top:calc(100% - 0px - 0px)!important}#dm .p_hfcontainer .u_1077242103.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child) .unifiednav__container[data-depth="0"]{left:20px!important}#dm .p_hfcontainer .u_1077242103.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding-right:5px!important;padding-left:5px!important;padding-top:0!important}#dm .p_hfcontainer .u_1077242103.main-navigation.unifiednav:not([image]) .unifiednav__container[data-depth="0"]{top:calc(100% - 0px - 0px)!important}#dm .p_hfcontainer .u_1077242103.main-navigation.unifiednav[data-nav-structure=HORIZONTAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child) .unifiednav__container[data-depth="0"]{left:5px!important}#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav{background-color:rgba(0,0,0,0)!important}#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{border-top-color:rgba(5,151,223,1)!important}#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav .unifiednav__container[data-depth]{background-color:rgba(255,255,255,1)!important}#dm .dmInner div.u_hcontainer{box-shadow:rgba(248,153,29,1) 0 3px 11px 0!important;-moz-box-shadow:rgba(248,153,29,1) 0 3px 11px 0!important;-webkit-box-shadow:rgba(248,153,29,1) 0 3px 11px 0!important;line-height:normal!important;background-color:rgba(255,255,255,1)!important}#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer{box-shadow:rgba(248,153,29,1) 0 3px 11px 0!important;-moz-box-shadow:rgba(248,153,29,1) 0 3px 11px 0!important;-webkit-box-shadow:rgba(248,153,29,1) 0 3px 11px 0!important;background-color:rgba(255,255,255,1)!important}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding:15px 0!important}.fHeader #hcontainer.dmHeader[freeheader=true]{padding-top:initial!important;padding-bottom:initial!important}#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav:not(.unifiednav_vertical) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before,#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer nav.u_1077242103.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{padding-bottom:0!important;margin-top:0!important;margin-bottom:0!important;padding-top:0!important}#dm .p_hfcontainer div.u_1128150742{padding:0!important}#dm .p_hfcontainer div.u_1996823969{padding-left:10px!important}#dm .p_hfcontainer nav.u_1077242103{float:none!important;top:0!important;left:0!important;position:relative!important;height:auto!important;justify-content:center!important;align-items:stretch!important;text-align:start!important;padding:10px 15px 10px 0!important;margin:10px auto 0!important}#dm .dmBody div.u_1190200527,#dm .p_hfcontainer div.u_1724762301,div.u_1127783396{top:0!important;left:0!important;position:relative!important;text-align:center!important}#dm .dmInner div.fHeader.dmHeaderContainer #hcontainer.dmHeader[freeheader=true]{padding-top:15px!important;padding-bottom:10px!important}#dm .p_hfcontainer div.u_1724762301{float:none!important;display:block!important;padding:0!important;margin:0 72.67px 0 0!important}#dm .p_hfcontainer div.u_1770964728{width:auto!important;padding:0 15px!important;margin:0!important}.stickyHeaderSpacer{height:87.05px!important}#dm .dmBody .u_1190200527:before{opacity:.5!important;background-color:#000!important}#dm .dmBody div.u_1190200527:before,#dm .dmBody div.u_1323060814{background-color:rgba(255,255,255,1)!important}#dm .dmBody div.u_1190200527{background-image:url(https://lirp.cdn-website.com/b8f1a169/dms3rep/multi/opt/Summit+County+Snowy+Mountain-1920w.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important;box-shadow:rgba(248,153,29,1) 0 -3px 11px 0!important;-moz-box-shadow:rgba(248,153,29,1) 0 -3px 11px 0!important;-webkit-box-shadow:rgba(248,153,29,1) 0 -3px 11px 0!important}#dm .dmBody div.u_1190200527:before{opacity:.84!important}div.u_1127783396 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important;box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important}#dm .dmBody div.u_1821606930{background-color:rgba(0,0,0,0)!important}#dm{z-index:3!important}#dm .dmBody div.u_1118855289 img{border-color:rgba(0,170,225,1)!important;box-shadow:rgba(248,153,29,1) 0 0 11px 0!important;-moz-box-shadow:rgba(248,153,29,1) 0 0 11px 0!important;-webkit-box-shadow:rgba(248,153,29,1) 0 0 11px 0!important;border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .dmBody .u_1801259258:before{opacity:.5!important;background-color:#fff!important}#dm .dmBody div.u_1801259258:before{opacity:.21!important}#dm .dmBody div.u_1801259258{background-repeat:no-repeat!important;background-image:url(https://lirp.cdn-website.com/b8f1a169/dms3rep/multi/opt/Sparkling%2BKitchen%2BBy%2BTeam%2BClean-1920w.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important;background-size:cover!important;box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important}#dm .dmBody div.u_1190200527{float:none!important;width:auto!important;height:auto!important;max-width:100%!important;min-width:0!important;background-attachment:initial!important;background-size:cover!important;background-repeat:repeat!important;background-position:50% 0!important;padding:85px 40px!important}#dm .dmBody div.u_1118855289,#dm .dmBody div.u_1127783396,div.u_1127783396{float:none!important;min-width:25px!important}div.u_1127783396{width:calc(100% - 468px)!important;max-width:119px!important;display:block!important;height:auto!important;padding:0!important}#dm .dmBody div.u_1323060814,#dm .dmBody div.u_1910767681{max-width:100%!important;min-width:0!important;height:auto!important;top:0!important;left:0!important;position:relative!important}#dm .dmBody div.u_1821606930{padding-top:0!important;padding-left:50px!important;padding-bottom:0!important}#dm .dmBody div.u_1801259258{background-position:50% 50%!important;padding:0!important;margin:0!important}#dm .dmBody div.u_1323060814{float:none!important;width:auto!important;text-align:start!important;padding:3px 0!important;margin:0!important}#dm .dmBody div.u_1910767681{float:none!important;width:490px!important;display:block!important;padding:2px 0!important;margin:24px auto 8px!important}#dm .dmBody div.u_1127783396{top:0!important;left:0!important;width:calc(100% - 11px)!important;position:relative!important;max-width:468px!important;text-align:center!important;display:block!important;height:auto!important;padding:0!important;margin:74px auto 0!important}#dm .dmBody div.u_1118855289{top:0!important;left:0!important;width:100%!important;position:relative!important;margin-right:auto!important;max-width:300px!important;margin-top:11px!important;margin-bottom:0!important;text-align:start!important;display:block!important;important:true!important;padding:0!important}.font-size-34,.size-34{font-size:34px!important}
+        .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+            visibility: hidden;
+        }
+
+    </style>
+
+
+
+
+    <!-- End render the required css and JS in the head section -->
+
+
+
+
+
+
+
+    <link type="application/rss+xml" rel="alternate" href="https://www.summitteamclean.com//feed/rss2"/>
+    <link type="application/atom+xml" rel="alternate" href="https://www.summitteamclean.com//feed/atom"/>
+    <meta property="og:image" content="https://lirp.cdn-website.com/b8f1a169/dms3rep/multi/opt/Laundry-1920w.jpg"/>
+    <title>
+
+        Summit County Team Clean
+
+    </title>
+    <meta name="keywords" content="team clean, cleaning service, summit county cleaning services, cleaning company, teamclean"/>
+    <meta name="description" content="Voted Best Cleaning Company by Best of 2020 Dillon. Team Clean’s #1 goal is to maintain our position as the best cleaning service in Summit County."/>
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Summit County Team Clean"/>
+    <meta name="twitter:description" content="Voted Best Cleaning Company by Best of 2020 Dillon. Team Clean’s #1 goal is to maintain our position as the best cleaning service in Summit County."/>
+    <meta property="og:description" content="Voted Best Cleaning Company by Best of 2020 Dillon. Team Clean’s #1 goal is to maintain our position as the best cleaning service in Summit County."/>
+    <meta property="og:title" content="Summit County Team Clean"/>
+
+
+
+
+    <!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home"  class="supportsFontIcons supportsFontIcons dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody " style="padding:0;margin:0;"
+>
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class='dmwr'>
+
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+        <div dmwrapped="true" id="1901957768" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="StandardLayoutMultiD" class="standardHeaderLayout dm-bfs dm-layout-home hasAnimations hasStickyHeader dmPageBody d-page-1716942098 dmFreeHeader" id="dm-outer-wrapper" data-page-class="1716942098" data-buttonstyle="BORDER_SHORT" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div> <div id="iscrollBody"> <div id="site_content"> <div class="dmHeaderContainer fHeader d-header-wrapper"> <div id="hcontainer" class="u_hcontainer dmHeader p_hfcontainer" freeheader="true" headerlayout="725" layout="7f3c1de367df47d5b45ab63d33101c7b===header" has-shadow="true"> <div dm:templateorder="85" class="dmHeaderResp dmHeaderStack noSwitch" id="1709005236"> <div class="dmRespRow dmDefaultListContentRow u_1770964728 fullBleedChanged fullBleedMode" style="text-align:center" id="1770964728"> <div class="dmRespColsWrapper" id="1718246623"> <div class="u_1128150742 small-12 dmRespCol large-2 medium-2" id="1128150742"> <div class="u_1724762301 imageWidget align-center" data-widget-type="image" id="1724762301" data-element-type="image"> <a href="/" id="1284795834"><img src="https://lirp.cdn-website.com/b8f1a169/dms3rep/multi/opt/logoteamclean+full+logo-378w.jpg" id="1424275588" class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/b8f1a169/dms3rep/multi/logoteamclean+full+logo.jpg" onerror="handleImageLoadError(this)" height="92.203125" width="315.0"/></a>
+        </div>
+        </div>
+            <div class="u_1996823969 dmRespCol small-12 large-10 medium-10" id="1996823969"> <nav class="u_1077242103 effect-float main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_2" layout-sub="submenu_horizontal_2" data-show-vertical-sub-items="HOVER" id="1077242103" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul class="unifiednav__container  " data-auto="navigation-pages"> <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/About-Team-Clean" class="unifiednav__item  dmUDNavigationItem_010101661768  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         About
+        " data-auto="page-text-style">About<span class="icon icon-angle-down"></span>
+</span>
+            </a>
+            </li>
+                <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/Residential-Cleaning-Services" class="unifiednav__item  dmUDNavigationItem_010101420629  unifiednav__item_has-sub-nav" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Residential Cleaning
+        " data-auto="page-text-style">Residential Cleaning<span class="icon icon-angle-down"></span>
+</span>
+                </a>
+                    <ul class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/covid-19/coronavirus" class="unifiednav__item  dmUDNavigationItem_010101400198  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           COVID-19/CORONAVIRUS
+          " data-auto="page-text-style">COVID-19/CORONAVIRUS<span class="icon icon-angle-right"></span>
+</span>
+                    </a>
+                    </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Residential-Cleaning-Services/Move-Out-In-Cleaning" class="unifiednav__item  dmUDNavigationItem_010101832097  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Move Out/In Cleaning
+          " data-auto="page-text-style">Move Out/In Cleaning<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Residential-Cleaning-Services/Residential-Carpet-Cleaning" class="unifiednav__item  dmUDNavigationItem_010101261605  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Residential Carpet Cleaning
+          " data-auto="page-text-style">Residential Carpet Cleaning<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/Vacation-Rental-Cleaning" class="unifiednav__item  dmUDNavigationItem_010101628177  unifiednav__item_has-sub-nav" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Vacation Rental Cleaning
+        " data-auto="page-text-style">Vacation Rental Cleaning<span class="icon icon-angle-down"></span>
+</span>
+                </a>
+                    <ul class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Vacation-Rental-Cleaning/Linen-Laundry-Service" class="unifiednav__item  dmUDNavigationItem_010101260007  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Linen and Laundry Service
+          " data-auto="page-text-style">Linen and Laundry Service<span class="icon icon-angle-right"></span>
+</span>
+                    </a>
+                    </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Vacation-Rental-Cleaning/Minor-Handyman-Furniture-Moving" class="unifiednav__item  dmUDNavigationItem_010101131699  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Minor Handyman or Furniture Moving
+          " data-auto="page-text-style">Minor Handyman or Furniture Moving<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Vacation-Rental-Cleaning/snow-removal" class="unifiednav__item  dmUDNavigationItem_010101552361  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Snow Removal
+          " data-auto="page-text-style">Snow Removal<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/Commercial-Cleaning" class="unifiednav__item  dmUDNavigationItem_010101159377  unifiednav__item_has-sub-nav" target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Commercial Cleaning
+        " data-auto="page-text-style">Commercial Cleaning<span class="icon icon-angle-down"></span>
+</span>
+                </a>
+                    <ul class="unifiednav__container unifiednav__container_sub-nav" data-depth="0" data-auto="sub-pages"> <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/covid-19/corona-virus78a2f784" class="unifiednav__item  dmUDNavigationItem_010101811889  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           COVID-19/CORONAVIRUS
+          " data-auto="page-text-style">COVID-19/CORONAVIRUS<span class="icon icon-angle-right"></span>
+</span>
+                    </a>
+                    </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Commercial-Cleaning/Office-Cleaning" class="unifiednav__item  dmUDNavigationItem_010101641627  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Office Cleaning
+          " data-auto="page-text-style">Office Cleaning<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Commercial-Cleaning/Janitorial-Service" class="unifiednav__item  dmUDNavigationItem_010101349765  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Janitorial Service
+          " data-auto="page-text-style">Janitorial Service<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Commercial-Cleaning/HOA-Common-Area-Maintenance" class="unifiednav__item  dmUDNavigationItem_0101015096  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           HOA Common Area Maintenance
+          " data-auto="page-text-style">HOA Common Area Maintenance<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Commercial-Cleaning/Vinyl-Composite-Tile-Floor-Strip-Wax" class="unifiednav__item  dmUDNavigationItem_010101795086  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Vinyl Composite Tile floor Strip and Wax
+          " data-auto="page-text-style">Vinyl Composite Tile floor Strip and Wax<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                        <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="1"> <a href="/Commercial-Cleaning/Commercial-Carpet-Cleaning" class="unifiednav__item  dmUDNavigationItem_010101720894  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+           Commercial Carpet Cleaning
+          " data-auto="page-text-style">Commercial Carpet Cleaning<span class="icon icon-angle-right"></span>
+</span>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/Post-Construction" class="unifiednav__item  dmUDNavigationItem_010101505905  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Construction Cleaning
+        " data-auto="page-text-style">Construction Cleaning<span class="icon icon-angle-down"></span>
+</span>
+                </a>
+                </li>
+                <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/FAQ" class="unifiednav__item  dmUDNavigationItem_010101789032  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         F.A.Q
+        " data-auto="page-text-style">F.A.Q<span class="icon icon-angle-down"></span>
+</span>
+                </a>
+                </li>
+                <li class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/contact-us" class="unifiednav__item  dmUDNavigationItem_010101968118  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Contact Us
+        " data-auto="page-text-style">Contact Us<span class="icon icon-angle-down"></span>
+</span>
+                </a>
+                </li>
+            </ul>
+            </nav>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+            <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div>
+            <div class="dmRespRow dmRespRowStable dmRespRowNoPadding dmPageTitleRow "> <div class="dmRespColsWrapper"> <div class="large-12 dmRespCol"> <div id="innerBar" class="innerBar lineInnerBar dmDisplay_None"> <div class="titleLine display_None"><hr/></div>
+                <!-- Page title is hidden in css for new responsive sites. It is left here only so we don't break old sites. Don't copy it to new layouts --> <div id="pageTitleText"></div>
+                <div class="titleLine display_None"><hr/></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div dmwrapped="true" id="1901957768" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent"> <div dm:templateorder="170" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl" id="1716942098"> <div class="u_1323060814 dmRespRow fullBleedChanged fullBleedMode mobile-columns-reversed" id="1323060814"> <div class="dmRespColsWrapper" id="1495590686"> <div class="u_1821606930 dmRespCol small-12 large-5 medium-5" id="1821606930"> <div class="u_1127783396 imageWidget align-center" data-widget-type="image" id="1127783396" data-element-type="image"> <a href="/" id="1412386006"><img src="https://lirp.cdn-website.com/b8f1a169/dms3rep/multi/opt/logoteamcleanlogofinal-f5b7bc0e-561w.jpg" id="1993888617" class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/b8f1a169/dms3rep/multi/logoteamcleanlogofinal-f5b7bc0e.jpg" onerror="handleImageLoadError(this)" height="98.828125" width="468.0"/></a>
+            </div>
+                <div class="u_1118855289 imageWidget align-center hasFullWidth" data-element-type="image" data-widget-type="image" id="1118855289"> <a id="1031201812"><img src="https://lirp.cdn-website.com/b8f1a169/dms3rep/multi/opt/TC+BEST+2020+PlaqueFullColor-360w.jpg" alt="Best Cleaning Service Award In Best Of 2020 Dillon" id="1598125471" class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/b8f1a169/dms3rep/multi/TC+BEST+2020+PlaqueFullColor.jpg" onerror="handleImageLoadError(this)" height="387.0" width="300.0"/></a>
+                </div>
+                <div class="u_1910767681 dmNewParagraph" data-element-type="paragraph" id="1910767681" style="transition:none 0s ease 0s;line-height:initial;" z-index:="" data-version="5"> <h2 class="m-text-align-left text-align-center size-34" style="letter-spacing: 0.1em;"><span class="font-size-34" style="background-color: rgba(0, 0, 0, 0); font-weight: normal; color: rgb(5, 151, 223); display: initial;">We don't cut corners...</span></h2>
+                    <h2 class="m-text-align-left text-align-center size-34" style="letter-spacing: 0.1em;"><span class="font-size-34" style="color: rgb(5, 151, 223); font-weight: normal; display: initial;">we clean them!</span></h2>
+                </div></div>
+                <div class="u_1801259258 dmRespCol small-12 dmSectionNoParallax large-7 medium-7 empty-column" id="1801259258" data-gallery-bg="eyJzbGlkZXMiOltdfQ=="></div>
+            </div>
+            </div>
+                <div class="u_1190200527 dmRespRow dmSectionNoParallax hasBackgroundOverlay" style="text-align: center;" id="1190200527"> <div class="dmRespColsWrapper" id="1312892479"> <div class="u_1521390111 dmRespCol small-12 medium-12 large-12" id="1521390111" data-anim-desktop="none"> <div class="u_1762599151 dmNewParagraph" id="1762599151" style="transition: none 0s ease 0s; display: block;" data-version="4"><p class="text-align-center size-28" style="letter-spacing: 0.05em;"><span class="font-size-28" style="display: unset; color: rgb(0, 0, 0);">Team Clean&rsquo;s #1 goal is to maintain our position as the best cleaning service in Summit County. This will be achieved through our never-ending efforts to improve work processes and employ the highest quality cleaning talent. These efforts, in addition to always utilizing cutting-edge technology, ensure Team Clean will continue to exceed every customer&rsquo;s expectations&hellip; and never cut corners but clean them.</span></p></div></div>
+                </div>
+                </div>
+                <div class="u_1011968721 dmRespRow" id="1011968721"> <div class="dmRespColsWrapper" id="1246675614"> <div class="dmRespCol large-12 medium-12 small-12" id="1627728956"> <div class="dmNewParagraph u_1360658026 ql-disabled" data-element-type="paragraph" id="1360658026" background-image="" :="" style="line-height:initial;" data-version="4"><p class="text-align-center size-48 m-size-36" style="letter-spacing: 0.05em;"><span class="font-size-48 m-font-size-36" style="display: unset;">A Few Reasons Why Team Clean Is&nbsp;</span></p><p class="text-align-center" style="letter-spacing: 0.05em;"><span class="font-size-48 m-font-size-36" style="display: unset;">The&nbsp;</span><span class="font-size-48" style="display: unset; color: rgb(0, 0, 0);">Only</span><span class="" style="display: unset;"><span style="display: unset;">&nbsp; &nbsp; &nbsp;</span>
+</span><span style="display: unset;" class="font-size-48">Choice</span></p><p class="text-align-center"><br/></p></div></div>
+                </div>
+                </div>
+                <div class="u_1458320256 dmRespRow" style="text-align: center;" id="1458320256"> <div class="dmRespColsWrapper" id="1535927123"> <div class="dmRespCol small-12 u_1206321943 large-3 medium-3" id="1206321943"> <span id="1927971400"></span>
+                    <div class="u_1540101273 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1540101273" data-layout="graphic-style-2"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1664 1792" id="1091042726" class="svg u_1091042726" data-icon-name="fa-star" alt="Voted Best Cleaning Company by Summit Daily"> <path fill="inherit" d="M1664 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z" id="1322876886"></path>
+                    </svg>
+                    </div>
+                    <div class="u_1637482290 dmNewParagraph ql-disabled" id="1637482290" style="display:block;transition:none 0s ease 0s;line-height:initial;" data-version="4"><p class="text-align-center size-24" style="letter-spacing: 0.05em;"><span class="font-size-24" style="color: rgb(0, 0, 0); display: unset;">Voted Best Cleaning Company by Summit Daily and Best of 2020 Dillon.</span></p></div></div>
+                    <div class="dmRespCol small-12 u_1308642833 large-3 medium-3" id="1308642833"> <span id="1264306242"></span>
+                        <div class="u_1188827533 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1188827533" data-layout="graphic-style-2"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1258993001" class="svg u_1258993001" data-icon-name="wp-location_map" alt="Team Clean is the only cleaning service with physical presence in Summit County"> <g id="1637461226"> <path d="M60,58.7l-5-18c-0.1-0.3-0.3-0.5-0.6-0.6l-9-4C45.2,36,45,36,44.8,36l-3,0.7c-0.5,0.8-0.9,1.5-1.3,2.3l3.5-0.8v6.1l-16,7.1
+		v-9.7l2.5-0.5c-0.2-0.6-0.5-1.3-0.8-1.9L27.1,40l-8.7-3.9c-0.2-0.1-0.5-0.1-0.8,0c-0.3,0.1-0.5,0.3-0.6,0.5l-7,17
+		c-0.1,0.3-0.1,0.6,0,0.8c0.1,0.3,0.3,0.4,0.6,0.5l16,5c0.2,0.1,0.4,0.1,0.6,0L45,55l13.7,4.9c0.1,0,0.2,0.1,0.3,0.1
+		c0.2,0,0.5-0.1,0.7-0.3C60,59.5,60.1,59.1,60,58.7z M26,57.6l-13.7-4.3l4-9.6l9.7,9.7V57.6z M26,50.6l-8.9-8.9l1.4-3.4l7.5,3.3
+		V50.6z M44,53.2l-16,4.4v-4l16-7.1V53.2z M55.5,50.1l-6-6l3.8-1.7L55.5,50.1z M46,38.5l5.5,2.5L46,43.5V38.5z M46,53.3v-7.6
+		l1.5-0.7l9,9l1,3.4L46,53.3z" id="1714098966"></path>
+                            <path d="M35,10c-6.6,0-12,5.3-12,11.9c0,2.9,1.1,5.7,3,7.9c3.1,3.6,5.4,7.3,6.7,11.1l0.7,2.5l0,0.1c0.3,1,0.8,1.5,1.6,1.5
+		c0.8,0,1.3-0.5,1.6-1.5l0.7-2.5c1.3-3.8,3.6-7.5,6.7-11.1c1.9-2.2,3-5,3-7.9C47,15.3,41.6,10,35,10z M35,26c-2.2,0-4-1.8-4-4
+		c0-2.2,1.8-4,4-4c2.2,0,4,1.8,4,4C39,24.2,37.2,26,35,26z" id="1256685696"></path>
+                        </g>
+                        </svg>
+                        </div>
+                        <div class="u_1385116863 dmNewParagraph ql-disabled" id="1385116863" style="display:block;line-height:initial;" data-version="4"><p class="text-align-center size-24" style="letter-spacing: 0.05em;"><span class="font-size-24" style="color: rgb(0, 0, 0); display: unset;">Team Clean is the only cleaning service with physical presence in Summit County since 2004.</span></p></div></div>
+                    <div class="dmRespCol small-12 u_1119198060 large-3 medium-3" id="1119198060"> <span id="1193594773"></span>
+                        <div class="u_1327243009 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1327243009" data-layout="graphic-style-2"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1570983832" class="svg u_1570983832" data-icon-name="wp-timer" alt="Supervisors and management are always accessible to ensure your cleaning needs are met quickly and effectively."> <g id="1458172343"> <path d="M18.5,39.7C20.7,49,29,56,39,56c11.6,0,21-9.4,21-21s-9.4-21-21-21c-10.4,0-19,7.5-20.7,17.4l2.6-2.6
+		c1.2-1.2,3.1-1.2,4.2,0c1.2,1.2,1.2,3.1,0,4.2L18.5,39.7z M30.3,42.3l7.7-7.7V19c0-0.6,0.4-1,1-1c0.6,0,1,0.4,1,1v16
+		c0,0.3-0.1,0.5-0.3,0.7l-8,8C31.5,43.9,31.3,44,31,44c-0.3,0-0.5-0.1-0.7-0.3C29.9,43.3,29.9,42.7,30.3,42.3z" id="1336007988"></path>
+                            <path d="M39,10c-13.8,0-25,11.2-25,25v1.6l-6.3-6.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4l8,8c0.2,0.2,0.5,0.3,0.7,0.3
+		c0.3,0,0.5-0.1,0.7-0.3l8-8c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L16,36.6V35c0-12.7,10.3-23,23-23c12.7,0,23,10.3,23,23
+		S51.7,58,39,58c-6.2,0-11.9-2.4-16.3-6.7c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4C26,57.4,32.3,60,39,60c13.8,0,25-11.2,25-25
+		S52.8,10,39,10z" id="1155759484"></path>
+                        </g>
+                        </svg>
+                        </div>
+                        <div class="u_1900556075 dmNewParagraph ql-disabled" id="1900556075" style="display:block;line-height:initial;" data-version="4"><p class="text-align-center size-24" style="letter-spacing: 0.05em;"><span class="font-size-24" style="color: rgb(0, 0, 0); display: unset;">Supervisors and management are always accessible to ensure your cleaning needs are met quickly and effectively.</span></p></div></div>
+                    <div class="dmRespCol large-3 medium-3 small-12" id="1593443540"> <div class="u_1496305957 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1496305957" data-layout="graphic-style-2"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 2304 1792" id="1004487667" class="svg u_1004487667" data-icon-name="fa-american-sign-language-interpreting" alt="We proudly boast reliability. Multiple Team Clean-ers have been with us since we started back in 2004."> <path fill="inherit" d="M1032 960q-59-2-84-55-17-34-48-53.5t-68-19.5q-53 0-90.5 37.5t-37.5 90.5q0 56 36 89l10 8q34 31 82 31 37 0 68-19.5t48-53.5q25-53 84-55zM1600 832q0-56-36-89l-10-8q-34-31-82-31-37 0-68 19.5t-48 53.5q-25 53-84 55 59 2 84 55 17 34 48 53.5t68 19.5q53 0 90.5-37.5t37.5-90.5zM1174 611q-17 35-55 48t-73-4q-62-31-134-31-51 0-99 17 3 0 9.5-0.5t9.5-0.5q92 0 170.5 50t118.5 133q17 36 3.5 73.5t-49.5 54.5q-18 9-39 9 21 0 39 9 36 17 49.5 54.5t-3.5 73.5q-40 83-118.5 133t-170.5 50h-6q-16-2-44-4l-290-27-239 120q-14 7-29 7-40 0-57-35l-160-320q-11-23-4-47.5t29-37.5l209-119 148-267q17-155 91.5-291.5t195.5-236.5q31-25 70.5-21.5t64.5 34.5 21.5 70-34.5 65q-70 59-117 128 123-84 267-101 40-5 71.5 19t35.5 64q5 40-19 71.5t-64 35.5q-84 10-159 55 46-10 99-10 115 0 218 50 36 18 49 55.5t-5 73.5zM2137 451l160 320q11 23 4 47.5t-29 37.5l-209 119-148 267q-17 155-91.5 291.5t-195.5 236.5q-26 22-61 22-45 0-74-35-25-31-21.5-70t34.5-65q70-59 117-128-123 84-267 101-4 1-12 1-36 0-63.5-24t-31.5-60q-5-40 19-71.5t64-35.5q84-10 159-55-46 10-99 10-115 0-218-50-36-18-49-55.5t5-73.5q17-35 55-48t73 4q62 31 134 31 51 0 99-17-3 0-9.5 0.5t-9.5 0.5q-92 0-170.5-50t-118.5-133q-17-36-3.5-73.5t49.5-54.5q18-9 39-9-21 0-39-9-36-17-49.5-54.5t3.5-73.5q40-83 118.5-133t170.5-50h6 1q14 2 42 4l291 27 239-120q14-7 29-7 40 0 57 35z" id="1569578615"></path>
+                    </svg>
+                    </div>
+                        <div class="u_1219210937 dmNewParagraph ql-disabled" id="1219210937" style="display:block;transition:none 0s ease 0s;line-height:initial;" data-version="4"><p class="text-align-center size-24" style="letter-spacing: 0.05em;"><span class="font-size-24" style="color: rgb(0, 0, 0); display: unset;">We proudly boast reliability.&nbsp; Multiple Team Clean-ers have been with us since we started back in 2004.</span></p></div></div>
+                </div>
+                </div>
+                <div class="u_1305506174 dmRespRow dmSectionNoParallax hasBackgroundOverlay" style="text-align: center;" id="1305506174"> <div class="dmRespColsWrapper" id="1619590261"> <div class="u_1646607200 dmRespCol small-12 medium-12 large-12" id="1646607200"> <div class="u_1553319021 dmNewParagraph ql-disabled" id="1553319021" style="transition-duration:1s;transition-timing-function:ease-in-out;transition-delay:initial;transition-property:opacity;display:block;line-height:initial;" data-element-type="paragraph" data-version="4"> <h2 class="text-align-center size-36" style="letter-spacing: 0.05em;"><span class="font-size-36" style="color: rgb(255, 255, 255); display: unset;">How Often Should You Clean Your House?</span></h2>
+                </div> <div class="u_1890945485 dmNewParagraph ql-disabled" id="1890945485" style="transition:none 0s ease 0s;display:block;line-height:initial;" data-version="4"><p class="text-align-center size-28" style="letter-spacing: 0.05em;"><span class="font-size-28" style="color: rgb(255, 255, 255); display: unset;">A good rule of thumb is to clean an occupied property at least once a week, but the truth is there is no &lsquo;one size fits all&rsquo; rule regarding how often your space needs to be cleaned. We consider multiple factors when building a scope of work that suits all of your particular needs. Knowing the size of your property and its layout, as well as the different types of finishes in your space, the occupancy, and the frequency of use helps us make a recommendation on frequency and budget.</span></p><p class="text-align-center size-28" style="letter-spacing: 0.05em;"><span class="font-size-28" style="color: rgb(255, 255, 255); display: unset;">&nbsp;</span></p><p class="text-align-center size-36" style="letter-spacing: 0.05em;"><span class="font-size-36" style="color: rgb(255, 255, 255); font-weight: bold; display: unset;">Major Benefits of Regular Cleaning:</span></p><p class="text-align-center size-28" style="letter-spacing: 0.05em;"><span class="font-size-28" style="color: rgb(255, 255, 255); display: unset;">Prevents Viral and Bacterial Contamination</span></p><p class="text-align-center size-28" style="letter-spacing: 0.05em;"><span class="font-size-28" style="color: rgb(255, 255, 255); display: unset;">Prolongs Lifespan of Furniture and Finishes</span></p><p class="text-align-center size-28" style="letter-spacing: 0.05em;"><span class="font-size-28" style="color: rgb(255, 255, 255); display: unset;">Reduces Stress and can Boost Productivity</span></p><p class="text-align-center"><br/></p></div></div>
+                </div>
+                </div>
+                <div class="dmRespRow u_1749368060 fullBleedChanged fullBleedMode" id="1749368060"> <div class="dmRespColsWrapper" id="1974007736"> <div class="dmRespCol small-12 medium-4 large-4 u_1983368948" id="1983368948"> <div class="u_1848033993 default dmShape" id="1848033993" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="" shape-description="PHAgY2xhc3M9InJ0ZUJsb2NrIj48c3Ryb25nPkZyZWUgRXN0aW1hdGVzPC9zdHJvbmc+PC9wPg==" shape-image="" alt-text="Free Estimates" tooltip="" shape-type="badge" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(0, 0, 0, 0)" shape-show-shadow="false" border-color-shape="rgba(0, 170, 225, 1)" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="2" overlay-opacity="50" link-attrs="e30="> <a data-link-id="shape-link-container" id="1399718221"> <div class="container-text container-padding center_center" id="1518379797"> <h3 class="shape-text" id="1400354445"></h3>
+                    <div class="shape-description" id="1593958203"> <p class="rteBlock" id="1883656472"> <strong id="1313327386">Free Estimates</strong></p>
+                    </div>
+                </div>
+                    <svg width="100%" height="100%" viewbox="-1.00 -1.00 102 102" id="1654114655"> <g> <polygon points="95.59 50 100 46.06 95.03 42.87 98.77 38.29 93.36 35.91 96.34 30.81 90.62 29.3 92.76 23.8 86.89 23.2 88.14 17.43 82.24 17.76 82.57 11.86 76.8 13.12 76.2 7.24 70.7 9.38 69.19 3.66 64.09 6.64 61.71 1.23 57.13 4.97 53.94 0 50 4.41 46.06 0 42.87 4.97 38.29 1.23 35.91 6.64 30.81 3.66 29.3 9.38 23.8 7.24 23.2 13.12 17.43 11.86 17.76 17.76 11.86 17.43 13.11 23.2 7.24 23.79 9.38 29.3 3.66 30.81 6.64 35.91 1.23 38.29 4.97 42.87 0 46.06 4.41 50 0 53.94 4.97 57.13 1.23 61.71 6.64 64.09 3.66 69.19 9.38 70.7 7.24 76.2 13.11 76.8 11.86 82.57 17.76 82.24 17.43 88.14 23.2 86.89 23.8 92.76 29.3 90.62 30.81 96.34 35.91 93.36 38.29 98.77 42.87 95.03 46.06 100 50 95.59 53.94 100 57.13 95.03 61.71 98.77 64.09 93.36 69.19 96.34 70.7 90.62 76.2 92.76 76.8 86.89 82.57 88.14 82.24 82.24 88.14 82.57 86.89 76.8 92.76 76.2 90.62 70.7 96.34 69.19 93.36 64.09 98.77 61.71 95.03 57.13 100 53.94 95.59 50" style="fill:rgba(0, 0, 0, 0);" stroke="rgba(0, 170, 225, 1)" stroke-width="2"></polygon>
+                    </g>
+                    </svg>
+                </a>
+                </div>
+                </div>
+                    <div class="dmRespCol small-12 medium-4 large-4" id="1625302997"> <div class="u_1421887289 default dmShape" id="1421887289" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="" shape-description="PGJyPjxwIGNsYXNzPSJydGVCbG9jayI+PHN0cm9uZz40OCBIb3VyPC9zdHJvbmc+PC9wPjxwIGNsYXNzPSJydGVCbG9jayI+PHN0cm9uZz5XYXJyYW50eSBPbiBBbGwgQ2xlYW5pbmcgU2VydmljZXM8L3N0cm9uZz48L3A+PGJyPg==" shape-image="" alt-text="48 Hour Warranty On All Cleaning Services" tooltip="" shape-type="badge" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(0, 0, 0, 0)" shape-show-shadow="false" border-color-shape="rgba(0, 170, 225, 1)" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="2" overlay-opacity="50" link-attrs="e30="> <a data-link-id="shape-link-container" id="1078585582"> <div class="container-text container-padding center_center" id="1083064481"> <h3 class="shape-text" id="1812421995"></h3>
+                        <div class="shape-description" id="1041749152"><br id="1124631048"/> <p class="rteBlock" id="1227882585"> <strong id="1098079392">48 Hour</strong></p>
+                            <p class="rteBlock" id="1631834435"> <strong id="1836736046">Warranty On All Cleaning Services</strong></p>
+                            <br id="1091815996"/></div>
+                    </div>
+                        <svg width="100%" height="100%" viewbox="-1.00 -1.00 102 102" id="1055342888"> <g> <polygon points="95.59 50 100 46.06 95.03 42.87 98.77 38.29 93.36 35.91 96.34 30.81 90.62 29.3 92.76 23.8 86.89 23.2 88.14 17.43 82.24 17.76 82.57 11.86 76.8 13.12 76.2 7.24 70.7 9.38 69.19 3.66 64.09 6.64 61.71 1.23 57.13 4.97 53.94 0 50 4.41 46.06 0 42.87 4.97 38.29 1.23 35.91 6.64 30.81 3.66 29.3 9.38 23.8 7.24 23.2 13.12 17.43 11.86 17.76 17.76 11.86 17.43 13.11 23.2 7.24 23.79 9.38 29.3 3.66 30.81 6.64 35.91 1.23 38.29 4.97 42.87 0 46.06 4.41 50 0 53.94 4.97 57.13 1.23 61.71 6.64 64.09 3.66 69.19 9.38 70.7 7.24 76.2 13.11 76.8 11.86 82.57 17.76 82.24 17.43 88.14 23.2 86.89 23.8 92.76 29.3 90.62 30.81 96.34 35.91 93.36 38.29 98.77 42.87 95.03 46.06 100 50 95.59 53.94 100 57.13 95.03 61.71 98.77 64.09 93.36 69.19 96.34 70.7 90.62 76.2 92.76 76.8 86.89 82.57 88.14 82.24 82.24 88.14 82.57 86.89 76.8 92.76 76.2 90.62 70.7 96.34 69.19 93.36 64.09 98.77 61.71 95.03 57.13 100 53.94 95.59 50" style="fill:rgba(0, 0, 0, 0);" stroke="rgba(0, 170, 225, 1)" stroke-width="2"></polygon>
+                        </g>
+                        </svg>
+                    </a>
+                    </div>
+                    </div>
+                    <div class="dmRespCol small-12 medium-4 large-4 u_1351594751" id="1351594751"> <div class="u_1973350798 default dmShape" id="1973350798" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="" shape-description="PHAgY2xhc3M9InJ0ZUJsb2NrIj48c3Ryb25nPkFjY2VwdGFuY2UgT2YgQWxsIE1ham9yIENyZWRpdCBDYXJkczwvc3Ryb25nPjwvcD4=" shape-image="" alt-text="Acceptance Of All Major Credit Cards" tooltip="" shape-type="badge" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(0, 0, 0, 0)" shape-show-shadow="false" border-color-shape="rgba(0, 170, 225, 1)" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="2" overlay-opacity="50" link-attrs="e30="> <a data-link-id="shape-link-container" id="1085960002"> <div class="container-text container-padding center_center" id="1464324348"> <h3 class="shape-text" id="1394388754"></h3>
+                        <div class="shape-description" id="1480928968"> <p class="rteBlock" id="1013445143"> <strong id="1040594422">Acceptance Of All Major Credit Cards</strong></p>
+                        </div>
+                    </div>
+                        <svg width="100%" height="100%" viewbox="-1.00 -1.00 102 102" id="1666165780"> <g> <polygon points="95.59 50 100 46.06 95.03 42.87 98.77 38.29 93.36 35.91 96.34 30.81 90.62 29.3 92.76 23.8 86.89 23.2 88.14 17.43 82.24 17.76 82.57 11.86 76.8 13.12 76.2 7.24 70.7 9.38 69.19 3.66 64.09 6.64 61.71 1.23 57.13 4.97 53.94 0 50 4.41 46.06 0 42.87 4.97 38.29 1.23 35.91 6.64 30.81 3.66 29.3 9.38 23.8 7.24 23.2 13.12 17.43 11.86 17.76 17.76 11.86 17.43 13.11 23.2 7.24 23.79 9.38 29.3 3.66 30.81 6.64 35.91 1.23 38.29 4.97 42.87 0 46.06 4.41 50 0 53.94 4.97 57.13 1.23 61.71 6.64 64.09 3.66 69.19 9.38 70.7 7.24 76.2 13.11 76.8 11.86 82.57 17.76 82.24 17.43 88.14 23.2 86.89 23.8 92.76 29.3 90.62 30.81 96.34 35.91 93.36 38.29 98.77 42.87 95.03 46.06 100 50 95.59 53.94 100 57.13 95.03 61.71 98.77 64.09 93.36 69.19 96.34 70.7 90.62 76.2 92.76 76.8 86.89 82.57 88.14 82.24 82.24 88.14 82.57 86.89 76.8 92.76 76.2 90.62 70.7 96.34 69.19 93.36 64.09 98.77 61.71 95.03 57.13 100 53.94 95.59 50" style="fill:rgba(0, 0, 0, 0);" stroke="rgba(0, 170, 225, 1)" stroke-width="2"></polygon>
+                        </g>
+                        </svg>
+                    </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="u_1288944582 dmRespRow" style="text-align: center;" id="1288944582"> <div class="dmRespColsWrapper" id="1315543293"> <div class="dmRespCol small-12 medium-12 large-12" id="1118555193"> <div class="dmNewParagraph u_1151213316" data-element-type="paragraph" id="1151213316" style="transition:none 0s ease 0s;display:block;line-height:initial;" data-version="4"><p class="m-size-36 text-align-center size-48" style="letter-spacing: 0.05em;"><span class="m-font-size-36 font-size-48" style="display: unset; font-weight: bold; font-family: 'Paytone One'; color: rgb(248, 153, 29);">We don&rsquo;t cut corners... we clean them!</span></p></div></div>
+                </div>
+                </div>
+                <div class="dmRespRow fullBleedChanged fullBleedMode u_1453922805" style="text-align: center;" id="1453922805"> <div class="dmRespColsWrapper" id="1595592854"> <div class="dmRespCol small-12 u_1447630584 medium-6 large-6 hasBackgroundOverlay" id="1447630584"> <div class="u_1618762932 default dmShape" id="1618762932" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="" shape-description="PHAgY2xhc3M9InJ0ZUJsb2NrIj48c3BhbiBzdHlsZT0iY29sb3I6cmdiKDI1NSwgMjU1LCAyNTUpIj48c3Ryb25nPlJlc2lkZW50aWFsIGNsZWFuaW5nPC9zdHJvbmc+PC9zcGFuPjwvcD4=" shape-image="" alt-text="" tooltip="" shape-type="shape9" show-text-on-shape="true" show-description-on-shape="true" shape-color="rgba(248, 153, 29, 0.35)" shape-show-shadow="true" border-color-shape="rgba(248, 153, 29, 1)" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="2" overlay-opacity="50" link-attrs="eyJ2YWx1ZSI6IlJlc2lkZW50aWFsLUNsZWFuaW5nIiwidHlwZSI6InBhZ2UiLCJocmVmIjoiL1Jlc2lkZW50aWFsLUNsZWFuaW5nIiwicmF3X3VybCI6Ii9zaXRlL2I4ZjFhMTY5L1Jlc2lkZW50aWFsLUNsZWFuaW5nP25lZT10cnVlJmVkPXRydWUmc2hvd09yaWdpbmFsPXRydWUmcHJldmlldz10cnVlJmRtX3RyeV9tb2RlPXRydWUmZG1fY2hlY2tTeW5jPTEifQ=="> <a href="/Residential-Cleaning" data-link-id="shape-link-container" id="1455367571"> <div class="container-text container-padding center_center" id="1932824726"> <h3 class="shape-text" id="1343664602"></h3>
+                    <div class="shape-description" id="1087169213"> <p class="rteBlock" id="1429907671"> <span style="color:rgb(255, 255, 255)" id="1700693663"> <strong id="1647749151">Residential cleaning</strong></span>
+                    </p>
+                    </div>
+                </div>
+                    <svg width="100%" height="100%" viewbox="-1.00 -1.00 102 102" class="shadow" id="1892330135"> <g> <path d="M7.4,30.2c0.3-3.5,1.4-6.8,3-9.9c3.5-6.4,10.3-10.4,17.2-12.8C35.2,4.9,44,3.9,50.9,8c5.4,3.1,8.7,8.7,12.5,13.5 			c4.2,5.4,9.7,9.4,15.7,12.6c4.8,2.6,10,5,14.3,8.6c3.3,2.6,5.6,6.3,6.5,10.4c0.5,4.1-0.4,8.4-2.6,11.9 			c-8.9,15.5-28.9,24.3-45.6,28c-12.7,2.8-27.6,2.7-39.3-3.8C6.1,85.7,0.9,79.7,0.1,72.5C-0.6,66,2.3,60.4,4.5,54.5 			C7.5,46.8,6.3,38.2,7.4,30.2z" style="fill:rgba(248, 153, 29, 0.35);" stroke="rgba(248, 153, 29, 1)" stroke-width="2"></path>
+                    </g>
+                    </svg>
+                </a>
+                </div>
+                </div>
+                    <div class="dmRespCol small-12 u_1078746701 hasBackgroundOverlay medium-6 large-6" id="1078746701"> <div class="u_1813707117 default dmShape" id="1813707117" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="" shape-description="PHAgY2xhc3M9InJ0ZUJsb2NrIj48c3BhbiBzdHlsZT0iY29sb3I6cmdiYSgyNTUsIDI1NSwgMjU1LCAxKSI+PHN0cm9uZz5WYWNhdGlvbiBSZW50YWw8L3N0cm9uZz48L3NwYW4+PC9wPjxwIGNsYXNzPSJydGVCbG9jayI+PHNwYW4gc3R5bGU9ImNvbG9yOnJnYmEoMjU1LCAyNTUsIDI1NSwgMSkiPjxzdHJvbmc+Q2xlYW5pbmc8L3N0cm9uZz48L3NwYW4+PC9wPg==" shape-image="" alt-text="" tooltip="" shape-type="shape9" show-text-on-shape="false" show-description-on-shape="true" shape-color="rgba(0, 170, 225, 0.35)" shape-show-shadow="true" border-color-shape="rgba(0, 170, 225, 1)" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="2" overlay-opacity="50" link-attrs="eyJ2YWx1ZSI6IlZhY2F0aW9uLVJlbnRhbC1DbGVhbmluZyIsInR5cGUiOiJwYWdlIiwiaHJlZiI6Ii9WYWNhdGlvbi1SZW50YWwtQ2xlYW5pbmciLCJyYXdfdXJsIjoiL3NpdGUvYjhmMWExNjkvVmFjYXRpb24tUmVudGFsLUNsZWFuaW5nP25lZT10cnVlJmVkPXRydWUmc2hvd09yaWdpbmFsPXRydWUmcHJldmlldz10cnVlJmRtX3RyeV9tb2RlPXRydWUmZG1fY2hlY2tTeW5jPTEifQ=="> <a href="/Vacation-Rental-Cleaning" data-link-id="shape-link-container" id="1002238234"> <div class="container-text container-padding center_center" id="1833024324"> <div class="shape-description" id="1976847335"> <p class="rteBlock" id="1540791283"> <span style="color:rgba(255, 255, 255, 1)" id="1534125662"> <strong id="1224855162">Vacation Rental</strong></span>
+                    </p>
+                        <p class="rteBlock" id="1766672234"> <span style="color:rgba(255, 255, 255, 1)" id="1100724760"> <strong id="1840134077">Cleaning</strong></span>
+                        </p>
+                    </div>
+                    </div>
+                        <svg width="100%" height="100%" viewbox="-1.00 -1.00 102 102" class="shadow" id="1077743255"> <g> <path d="M7.4,30.2c0.3-3.5,1.4-6.8,3-9.9c3.5-6.4,10.3-10.4,17.2-12.8C35.2,4.9,44,3.9,50.9,8c5.4,3.1,8.7,8.7,12.5,13.5 			c4.2,5.4,9.7,9.4,15.7,12.6c4.8,2.6,10,5,14.3,8.6c3.3,2.6,5.6,6.3,6.5,10.4c0.5,4.1-0.4,8.4-2.6,11.9 			c-8.9,15.5-28.9,24.3-45.6,28c-12.7,2.8-27.6,2.7-39.3-3.8C6.1,85.7,0.9,79.7,0.1,72.5C-0.6,66,2.3,60.4,4.5,54.5 			C7.5,46.8,6.3,38.2,7.4,30.2z" style="fill:rgba(0, 170, 225, 0.35);" stroke="rgba(0, 170, 225, 1)" stroke-width="2"></path>
+                        </g>
+                        </svg>
+                    </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="u_1288058613 dmRespRow fullBleedChanged fullBleedMode" style="text-align: center;" id="1288058613"> <div class="dmRespColsWrapper" id="1966185523"> <div class="dmRespCol small-12 u_1326722857 hasBackgroundOverlay medium-6 large-6" id="1326722857"> <div class="u_1388434572 default dmShape" id="1388434572" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="" shape-description="PHAgY2xhc3M9InJ0ZUJsb2NrIj48c3BhbiBzdHlsZT0iY29sb3I6cmdiYSgyNTUsIDI1NSwgMjU1LCAxKSI+PHN0cm9uZz5Db21tZXJjaWFsPC9zdHJvbmc+PC9zcGFuPjwvcD48cCBjbGFzcz0icnRlQmxvY2siPjxzcGFuIHN0eWxlPSJjb2xvcjpyZ2JhKDI1NSwgMjU1LCAyNTUsIDEpIj48c3Ryb25nPkNsZWFuaW5nPC9zdHJvbmc+PC9zcGFuPjwvcD4=" shape-image="" alt-text="" tooltip="" shape-type="shape9" show-text-on-shape="false" show-description-on-shape="true" shape-color="rgba(0, 170, 225, 0.35)" shape-show-shadow="true" border-color-shape="rgba(0, 170, 225, 1)" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="2" overlay-opacity="50" link-attrs="eyJ2YWx1ZSI6ImNvbWVyY2lhbC1jbGVhbmluZyIsInR5cGUiOiJwYWdlIiwiaHJlZiI6Ii9jb21lcmNpYWwtY2xlYW5pbmciLCJyYXdfdXJsIjoiL3NpdGUvYjhmMWExNjkvY29tZXJjaWFsLWNsZWFuaW5nP25lZT10cnVlJmVkPXRydWUmc2hvd09yaWdpbmFsPXRydWUmcHJldmlldz10cnVlJmRtX3RyeV9tb2RlPXRydWUmZG1fY2hlY2tTeW5jPTEifQ=="> <a href="/comercial-cleaning" data-link-id="shape-link-container" id="1656966275"> <div class="container-text container-padding center_center" id="1532726630"> <div class="shape-description" id="1181898634"> <p class="rteBlock" id="1589773412"> <span style="color:rgba(255, 255, 255, 1)" id="1043923270"> <strong id="1231077262">Commercial</strong></span>
+                </p>
+                    <p class="rteBlock" id="1106861305"> <span style="color:rgba(255, 255, 255, 1)" id="1010581826"> <strong id="1332585582">Cleaning</strong></span>
+                    </p>
+                </div>
+                </div>
+                    <svg width="100%" height="100%" viewbox="-1.00 -1.00 102 102" class="shadow" id="1772237807"> <g> <path d="M7.4,30.2c0.3-3.5,1.4-6.8,3-9.9c3.5-6.4,10.3-10.4,17.2-12.8C35.2,4.9,44,3.9,50.9,8c5.4,3.1,8.7,8.7,12.5,13.5 			c4.2,5.4,9.7,9.4,15.7,12.6c4.8,2.6,10,5,14.3,8.6c3.3,2.6,5.6,6.3,6.5,10.4c0.5,4.1-0.4,8.4-2.6,11.9 			c-8.9,15.5-28.9,24.3-45.6,28c-12.7,2.8-27.6,2.7-39.3-3.8C6.1,85.7,0.9,79.7,0.1,72.5C-0.6,66,2.3,60.4,4.5,54.5 			C7.5,46.8,6.3,38.2,7.4,30.2z" style="fill:rgba(0, 170, 225, 0.35);" stroke="rgba(0, 170, 225, 1)" stroke-width="2"></path>
+                    </g>
+                    </svg>
+                </a>
+                </div>
+                </div>
+                    <div class="dmRespCol small-12 u_1294404547 hasBackgroundOverlay medium-6 large-6" id="1294404547"> <div class="u_1889218688 default dmShape" id="1889218688" dmle_extension="shape" data-element-type="shape" text-position="center_center" wr="true" icon="true" surround="true" adwords="" shape-text="" shape-description="PHAgY2xhc3M9InJ0ZUJsb2NrIj48c3Ryb25nPjxzcGFuIHN0eWxlPSJjb2xvcjpyZ2JhKDI1NSwgMjU1LCAyNTUsIDEpIj5Db25zdHJ1Y3Rpb24gY2xlYW5pbmc8L3NwYW4+PC9zdHJvbmc+PC9wPg==" shape-image="" alt-text="" tooltip="" shape-type="shape9" show-text-on-shape="false" show-description-on-shape="true" shape-color="rgba(248, 153, 29, 0.35)" shape-show-shadow="true" border-color-shape="rgba(248, 153, 29, 1)" show-background-overlay="false" overlay-color="#ffffff" image-position="xMidYMid" shape-keep-proportion="true" shape-layout="layout1" border-width-shape="2" overlay-opacity="50" link-attrs="eyJ2YWx1ZSI6IkNvbnN0cnVjdGlvbi1DbGVhbmluZyIsInR5cGUiOiJwYWdlIiwiaHJlZiI6Ii9Db25zdHJ1Y3Rpb24tQ2xlYW5pbmciLCJyYXdfdXJsIjoiL3NpdGUvYjhmMWExNjkvQ29uc3RydWN0aW9uLUNsZWFuaW5nP25lZT10cnVlJmVkPXRydWUmc2hvd09yaWdpbmFsPXRydWUmcHJldmlldz10cnVlJmRtX3RyeV9tb2RlPXRydWUmZG1fY2hlY2tTeW5jPTEifQ=="> <a href="/Construction-Cleaning" data-link-id="shape-link-container" id="1262400179"> <div class="container-text container-padding center_center" id="1381055597"> <div class="shape-description" id="1109059638"> <p class="rteBlock" id="1798561169"> <strong id="1948485132"> <span style="color:rgba(255, 255, 255, 1)" id="1255275049">Construction cleaning</span>
+                    </strong></p>
+                    </div>
+                    </div>
+                        <svg width="100%" height="100%" viewbox="-1.00 -1.00 102 102" class="shadow" id="1700972415"> <g> <path d="M7.4,30.2c0.3-3.5,1.4-6.8,3-9.9c3.5-6.4,10.3-10.4,17.2-12.8C35.2,4.9,44,3.9,50.9,8c5.4,3.1,8.7,8.7,12.5,13.5 			c4.2,5.4,9.7,9.4,15.7,12.6c4.8,2.6,10,5,14.3,8.6c3.3,2.6,5.6,6.3,6.5,10.4c0.5,4.1-0.4,8.4-2.6,11.9 			c-8.9,15.5-28.9,24.3-45.6,28c-12.7,2.8-27.6,2.7-39.3-3.8C6.1,85.7,0.9,79.7,0.1,72.5C-0.6,66,2.3,60.4,4.5,54.5 			C7.5,46.8,6.3,38.2,7.4,30.2z" style="fill:rgba(248, 153, 29, 0.35);" stroke="rgba(248, 153, 29, 1)" stroke-width="2"></path>
+                        </g>
+                        </svg>
+                    </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="u_1574735233 dmRespRow" style="text-align: center;" id="1574735233"> <div class="dmRespColsWrapper" id="1249923658"> <div class="dmRespCol small-12 medium-12 large-12" id="1478623417"> <span id="1372905961"></span>
+                    <div class="u_1146908357 dmNewParagraph ql-disabled" id="1146908357" style="transition: opacity 1s ease-in-out;" data-element-type="paragraph" data-version="4"> <h2 class="text-align-center" style="letter-spacing: 0.05em;"><span style="color: rgb(7, 7, 7); display: unset;">Here Is What Some Of Our Dear Clients Have To Say About</span></h2>
+                        <h2 class="text-align-center"><span style="color: rgb(7, 7, 7); display: unset;">Team Clean</span></h2>
+                    </div></div>
+                </div>
+                </div>
+                <div class="dmRespRow u_1651168153" style="text-align: center;" id="1651168153"> <div class="dmRespColsWrapper" id="1464431774"> <div class="dmRespCol small-12 u_1357749999 medium-3 large-3" id="1357749999"> <div class="u_1037185775 graphicWidget" data-widget-type="graphic" id="1037185775" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1664 1792" id="1602102230" class="svg u_1602102230" data-icon-name="fa-quote-right"> <path fill="inherit" d="M768 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136zM1664 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136z" id="1217807535"></path>
+                </svg>
+                </div>
+                    <div class="u_1599550167 dmNewParagraph ql-disabled" id="1599550167" style="transition-duration: 1s; transition-timing-function: ease-in-out; transition-delay: initial; transition-property: opacity; display: block;" data-version="4"><p class="text-align-left" style="letter-spacing: 0.05em;"><span style="display: unset; color: rgb(107, 104, 104); font-style: italic;">&ldquo;I have been so impressed with the service and level of cleaning! They offer a great service for short term rentals with linens included. My condo has been so sparkling clean and all the beds made to perfection. They are experts! Highly recommend!&rdquo;</span></p></div> <div class="u_1968241280 dmNewParagraph ql-disabled" id="1968241280" style="display: block;" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="display: unset; font-weight: bold; color: rgb(49, 49, 49);">Courtney Holmes&nbsp;</span></p><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="display: unset; font-weight: bold; color: rgb(49, 49, 49);">CDLE</span></p></div></div>
+                    <div class="dmRespCol small-12 u_1837362364 medium-3 large-3" id="1837362364"> <div class="u_1950348564 graphicWidget" data-widget-type="graphic" id="1950348564" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1664 1792" id="1094334494" class="svg u_1094334494" data-icon-name="fa-quote-right"> <path fill="inherit" d="M768 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136zM1664 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136z" id="1315174852"></path>
+                    </svg>
+                    </div>
+                        <div class="u_1865092916 dmNewParagraph ql-disabled" id="1865092916" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="font-style: italic; color: rgb(107, 104, 104); display: unset;">&ldquo;Simply the best in the area. I would know since it seems like I have had to try them all just to find a reliable, quality service like Team Clean. Your search for reliable service ends here.&rdquo;</span></p></div> <div class="dmNewParagraph u_1942369962 ql-disabled" id="1942369962" style="display: block;" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="color: rgb(49, 49, 49); font-weight: bold; display: unset;">Kevin Rift</span></p></div></div>
+                    <div class="dmRespCol small-12 u_1836120730 medium-3 large-3" id="1836120730"> <div class="u_1776888270 graphicWidget" data-widget-type="graphic" id="1776888270" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1664 1792" id="1411789919" class="svg u_1411789919" data-icon-name="fa-quote-right"> <path fill="inherit" d="M768 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136zM1664 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136z" id="1855364036"></path>
+                    </svg>
+                    </div>
+                        <div class="u_1508023137 dmNewParagraph ql-disabled" id="1508023137" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="display: unset; color: rgb(107, 104, 104); font-style: italic;">&ldquo;Where do I begin? Great cleaning crews, amazing office staff and always available to accommodate my requests. Each rental is different and Team Clean goes above and beyond to make each guest feel special.&rdquo;&nbsp;</span></p></div> <div class="u_1143903722 dmNewParagraph ql-disabled" id="1143903722" style="display: block;" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="color: rgb(49, 49, 49); font-weight: bold; display: unset;">Jocelyn Billot</span></p></div></div>
+                    <div class="dmRespCol small-12 u_1777007996 medium-3 large-3" id="1777007996"> <div class="u_1545800729 graphicWidget" data-widget-type="graphic" id="1545800729" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1664 1792" id="1553879278" class="svg u_1553879278" data-icon-name="fa-quote-right"> <path fill="inherit" d="M768 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136zM1664 320v704q0 104-40.5 198.5t-109.5 163.5-163.5 109.5-198.5 40.5h-64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h64q106 0 181-75t75-181v-32q0-40-28-68t-68-28h-224q-80 0-136-56t-56-136v-384q0-80 56-136t136-56h384q80 0 136 56t56 136z" id="1156625532"></path>
+                    </svg>
+                    </div>
+                        <div class="u_1037038654 dmNewParagraph ql-disabled" id="1037038654" data-version="4"><p class="text-align-right" style="letter-spacing: 0.05em;"><span style="display: unset; color: rgb(107, 104, 104); font-style: italic;">&ldquo;Great company with an even better staff. Hard to find people like this in Summit.&rdquo;</span></p></div> <div class="u_1898738252 dmNewParagraph ql-disabled" id="1898738252" style="display: block;" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="color: rgb(49, 49, 49); font-weight: bold; display: unset;">Brenda Denning</span></p></div></div>
+                </div>
+                </div>
+                <div class="u_1273900239 dmRespRow" style="text-align: center;" id="1273900239"> <div class="dmRespColsWrapper" id="1520177935"> <div class="dmRespCol small-12 u_1222525842 medium-4 large-4" id="1222525842"> <div class="u_1029143043 graphicWidget" data-widget-type="graphic" id="1029143043" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" id="1555646772" class="svg u_1555646772" data-icon-name="li_phone"> <g id="1473657461"> <path d="M36.2,22.1v2.2c5.5,0,10,4.5,10,10h2.2C48.4,27.6,42.9,22.1,36.2,22.1z" id="1385162093"></path>
+                    <path d="M52.4,34.3h2.2c0-4.9-1.9-9.6-5.4-13.1c-3.5-3.5-8.1-5.4-13.1-5.4V18c4.4,0,8.5,1.7,11.5,4.8C50.7,25.9,52.4,30,52.4,34.3z
+		" id="1455984536"></path>
+                    <path d="M65.1,57l-7.8,7.8L38.8,46.3l7.8-7.8l-15-15L23,32.1c-4.7,4.7-4.7,12.5,0,17.2l31.3,31.3c2.3,2.3,5.4,3.6,8.6,3.6
+		c3.2,0,6.3-1.3,8.6-3.6l8.6-8.6L65.1,57z M70,79.1c-1.9,1.9-4.4,2.9-7,2.9c-2.7,0-5.2-1-7-2.9L24.6,47.8c-3.9-3.9-3.9-10.2,0-14.1
+		l7-7l11.9,11.9l-7.8,7.8L57.3,68l7.8-7.8L77,72L70,79.1z" id="1072982888"></path>
+                </g>
+                </svg>
+                </div>
+                    <div class="u_1151827217 dmNewParagraph" id="1151827217" style="display:block;line-height:initial;" data-element-type="paragraph" data-version="4"> <h4 class="text-align-center size-24 m-size-17" style="letter-spacing: 0.05em;"><span style="display: unset; font-weight: 600;" class="font-size-24 m-font-size-17">Call Us</span></h4>
+                    </div> <div class="u_1331174116 dmNewParagraph" id="1331174116" style="transition:none;display:block;line-height:initial;" data-version="4"><p class="text-align-center size-18 m-size-13" style="letter-spacing: 0.05em;"><span style="display: unset; color: rgb(84, 110, 122); font-weight: 400;" class="font-size-18 m-font-size-13">Phone support is open Monday - Friday from 7am to 5pm.</span></p><p class="text-align-center size-18 m-size-13" style="letter-spacing: 0.05em;"><span style="display: unset; font-weight: 400; color: rgb(84, 110, 122);" class="font-size-18 m-font-size-13">Feel free to give us a call.&nbsp;</span></p></div> <div class="u_1490136031 dmNewParagraph" id="1490136031" style="transition:none;display:block;line-height:initial;" data-version="4"><p class="text-align-center size-30 m-size-21" style="letter-spacing: 0.05em;"><span style="display: unset; font-weight: 600; color: rgb(66, 165, 245);" class="font-size-30 m-font-size-21">970-468-BEST (2378)</span></p><p><br/></p></div></div>
+                    <div class="dmRespCol small-12 u_1931826226 medium-4 large-4" id="1931826226"> <div class="u_1019427754 graphicWidget" data-widget-type="graphic" id="1019427754" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" id="1998666001" class="svg u_1998666001" data-icon-name="li_open_envelope"> <path d="M50,19.6L19.7,39.8v40.6h60.7V39.8L50,19.6z M77.6,40.3l-7,4.7v-5.7H29.5V45l-7-4.7L50,21.9L77.6,40.3z M68.6,46.3L50,58.7
+	L31.4,46.3v-5h37.2V46.3z M21.6,78.5V42.1L50,61.1l28.4-18.9v36.3H21.6z" id="1851396558"></path>
+                    </svg>
+                    </div>
+                        <div class="u_1921349767 dmNewParagraph" id="1921349767" style="display:block;line-height:initial;" data-element-type="paragraph" data-version="4"> <h4 class="m-size-17 text-align-center size-24" style="letter-spacing: 0.05em;"><span class="m-font-size-17 font-size-24" style="font-weight: 600; display: unset;">Email Us</span></h4>
+                        </div> <div class="u_1567447018 dmNewParagraph" id="1567447018" style="transition:none;display:block;line-height:initial;" data-version="4"><p class="text-align-center size-18 m-size-13" style="letter-spacing: 0.05em;"><span style="display: unset; font-weight: 400; color: rgb(84, 110, 122);" class="font-size-18 m-font-size-13">For consultation requests and free estimates, email us today.</span></p></div> <div class="u_1767826422 dmNewParagraph" id="1767826422" style="transition:none;display:block;line-height:initial;" data-version="4"><p class="text-align-center size-22 m-size-15" style="letter-spacing: 0.05em;"><span class="font-size-22 m-font-size-15" style="display: unset; font-weight: 600; color: rgb(66, 165, 245);">summitteamclean@hotmail.com</span></p></div></div>
+                    <div class="dmRespCol small-12 u_1997575131 medium-4 large-4" id="1997575131"> <div class="u_1090618593 graphicWidget" data-widget-type="graphic" id="1090618593" data-element-type="graphic"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 70 70" id="1920170753" class="svg u_1920170753" data-icon-name="wp-location_pin_thin"> <g id="1359254209"> <path d="M35,10c-9.4,0-17,7.6-17,17c0,4.1,1.5,8,4.1,11.1l0.1,0.1c4.6,5.3,7.9,10.8,9.9,16.4l1,3.7l0,0.1c0.3,1.1,1,1.6,1.9,1.6
+		s1.6-0.5,1.9-1.6l1-3.8c1.9-5.6,5.3-11.2,9.9-16.4l0.1-0.1C50.5,35,52,31.1,52,27C52,17.6,44.4,10,35,10z M46.4,36.8L46.4,36.8
+		C41.5,42.3,38.1,48.1,36,54l0,0.1c0,0-1,3.7-1,3.7c0,0-0.1-0.2-0.1-0.2L34,54l0-0.1c-2-5.8-5.5-11.5-10.2-17l-0.1-0.1
+		C21.3,34.1,20,30.6,20,27c0-8.3,6.7-15,15-15s15,6.7,15,15C50,30.6,48.7,34.1,46.4,36.8z" id="1428729921"></path>
+                        <path d="M35,34c-3.9,0-7-3.1-7-7s3.1-7,7-7c3.9,0,7,3.1,7,7S38.9,34,35,34z M35,22c-2.8,0-5,2.2-5,5s2.2,5,5,5c2.8,0,5-2.2,5-5
+		S37.8,22,35,22z" id="1903714845"></path>
+                    </g>
+                    </svg>
+                    </div>
+                        <div class="u_1477577874 dmNewParagraph" id="1477577874" style="display:block;line-height:initial;" data-element-type="paragraph" data-version="4"> <h4 class="text-align-center size-24 m-size-17" style="letter-spacing: 0.05em;"><span style="display: unset; font-weight: 600;" class="font-size-24 m-font-size-17">Visit Us</span></h4>
+                        </div> <div class="u_1000696168 dmNewParagraph" id="1000696168" style="transition: none; display: block;" data-version="5"><p class="m-size-13 text-align-center size-18" style="letter-spacing: 0.05em;"><span class="m-font-size-13 font-size-18" style="font-weight: 400; color: rgb(84, 110, 122); display: initial;">330 Fiedler Ave. Suite 105</span></p><p class="m-size-13 text-align-center size-18" style="letter-spacing: 0.05em;"><span class="m-font-size-13 font-size-18" style="font-weight: 400; color: rgb(84, 110, 122); display: initial;">Dillon, CO 80435</span></p></div> <a class="u_1590481650 default dmDefaultGradient align-center dmMap dmWidget dmNoMark dmWwr" href="https://maps.google.com/maps?q=330+Fiedler+Ave%2C+Dillon%2C+80435%2C+CO%2C+United+States&sll=39.6279308,-106.0447754" contenteditable="false" onclick=";return dm_gaq_push_event('ClickToMap', 'Map',null,'b8f1a169', this,{hitCallBack:true});" id="1590481650" dmle_extension="mapextension" data-element-type="mapextension" modedesktop="" data-popup-title="" data-popup-description-visible="false" modemobile="button" addresstodisplay="330 Fiedler Ave, Dillon, 80435, CO, United States" geocompleteaddress="330 Fiedler Ave, Dillon, 80435, CO, United States" data-popup-display-desktop="" data-popup-display-mobile="" data-display-type="block" data-popup-title-visible="false" data-popup-description="" modetablet="" wr="true" data-popup-show="false" icon="true" surround="true" description="See Us On The Map" adwords="" icon-name="icon-map-marker" provider="mapbox" lon="-106.0447754" lat="39.6279308"> <span class="iconBg"> <span class="icon hasFontIcon icon-map-marker"></span>
+</span>
+                            <span class="text">See Us On The Map</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="sticky-widgets-container-global" id="1156520985"></div>
+            <div class="dmFooterContainer"> <div id="fcontainer" class="f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="250" class="dmFooterResp generalFooter" id="1943048428"> <div class="u_1856593579 dmRespRow fullBleedChanged fullBleedMode" style="text-align: center;" id="1856593579"> <div class="dmRespColsWrapper" id="1862892277"> <div class="dmRespCol small-12 medium-3 large-3 u_1392920231" id="1392920231"> <div class="u_1922859451 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1922859451"><img src="https://lirp.cdn-website.com/b8f1a169/dms3rep/multi/opt/logoteamclean+full+logo-318w.jpg" id="1597422499" class="" data-dm-image-path="https://irp-cdn.multiscreensite.com/b8f1a169/dms3rep/multi/logoteamclean+full+logo.jpg" onerror="handleImageLoadError(this)" height="77.5625" width="265.0"/></div>
+                <div class="dmNewParagraph u_1647086165 ql-disabled" data-element-type="paragraph" id="1647086165" style="transition:none 0s ease 0s;display:block;line-height:initial;" data-version="4"><p class="text-align-left" style="letter-spacing: 0.05em;"><span style="font-weight: bold; background-color: rgba(0, 0, 0, 0); color: rgba(0, 170, 225, 0.91); font-style: italic; display: unset;">&quot;At Team Clean, we believe in creating long lasting relationships with our customers and our employees.&quot;</span></p><p class="text-align-left"><br/></p></div></div>
+                <div class="u_1183291619 dmRespCol small-12 large-3 medium-3" id="1183291619"> <div class="u_1868041204 dmNewParagraph" id="1868041204" data-element-type="paragraph" style="line-height:initial;" data-version="5"> <h5 class="text-align-left size-24" style="letter-spacing: 0.05em;"><span class="font-size-24" style="color: rgb(248, 153, 29);">Our Location</span></h5>
+                    <h5 class="text-align-left size-22" style="letter-spacing: 0.05em;"><span class="font-size-22" style="color: rgb(40, 154, 217);">330 Fiedler Ave. Suite 10</span><span class="font-size-22" style="color: rgb(40, 154, 217);">4</span></h5>
+                    <h5 class="text-align-left size-22" style="letter-spacing: 0.05em;"><span class="font-size-22" style="color: rgb(40, 154, 217);">Dillon, CO 80435-1150</span></h5>
+                    <h5 class="text-align-left size-22" style="letter-spacing: 0.05em;"><span class="font-size-22" style="color: rgb(40, 154, 217);">(970) 468-BEST(2378)</span></h5>
+                </div></div>
+                <div class="u_1686536176 dmRespCol small-12 large-3 medium-3" id="1686536176"> <div class="u_1472035843 dmNewParagraph" id="1472035843" style="display:block;line-height:initial;" data-element-type="paragraph" data-version="5"> <h5 class="text-align-left size-24" style="letter-spacing: 0.05em;"><span class="font-size-24" style="color: rgb(248, 153, 29); display: initial;">Our Services</span></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Residential-Cleaning-Services" runtime_url="/Residential-Cleaning-Services" type="page" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;">Residential Cleaning</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Residential-Cleaning-Services/Move-Out-In-Cleaning" runtime_url="/Residential-Cleaning-Services/Move-Out-In-Cleaning" type="page" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;">Move Out / In Cleaning</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Residential-Cleaning-Services/Residential-Carpet-Cleaning" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Residential-Cleaning-Services/Residential-Carpet-Cleaning" type="page">Residential Carpet Cleaning</a><a href="/Residential-Cleaning/residential-carpet-cleaning" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;">&nbsp;</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Vacation-Rental-Cleaning" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Vacation-Rental-Cleaning" type="page">Vacation Rental Cleaning</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Vacation-Rental-Cleaning/Linen-Laundry-Service" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Vacation-Rental-Cleaning/Linen-Laundry-Service" type="page">Linen and Laundry Services</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Vacation-Rental-Cleaning/Minor-Handyman-Furniture-Moving" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Vacation-Rental-Cleaning/Minor-Handyman-Furniture-Moving" type="page">Minor Handyman Services</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Vacation-Rental-Cleaning/snow-removal" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Vacation-Rental-Cleaning/snow-removal" type="page">Snow Removal</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Commercial-Cleaning/Office-Cleaning" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Commercial-Cleaning/Office-Cleaning" type="page">Office Cleaning</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Commercial-Cleaning/Janitorial-Service" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Commercial-Cleaning/Janitorial-Service" type="page">Janitorial Cleaning</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Commercial-Cleaning/HOA-Common-Area-Maintenance" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Commercial-Cleaning/HOA-Common-Area-Maintenance" type="page">HOA Common Area Maintenance</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Commercial-Cleaning/Vinyl-Composite-Tile-Floor-Strip-Wax" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Commercial-Cleaning/Vinyl-Composite-Tile-Floor-Strip-Wax" type="page">Vinyl Composite Tile Floor Strip and Wax</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Commercial-Cleaning/Commercial-Carpet-Cleaning" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Commercial-Cleaning/Commercial-Carpet-Cleaning" type="page">Commercial Carpet Cleaning</a><a href="/comercial-cleaning/commercial-carpet-cleaning" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;">&nbsp;</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Commercial-Cleaning" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Commercial-Cleaning" type="page">Commercial Cleaning</a></h5>
+                    <h5 style="letter-spacing: 0.05em;" class="size-20"><a href="/Post-Construction" class="font-size-20" style="color: rgb(0, 170, 225); background-color: rgba(0, 0, 0, 0); display: initial;" runtime_url="/Post-Construction" type="page">Construction Cleaning</a></h5>
+                    <h5><span style="display: initial;"><br/></span></h5>
+                </div></div>
+                <div class="dmRespCol small-12 medium-3 large-3 u_1201999942" id="1201999942"> <div class="dmNewParagraph u_1361954466 ql-disabled" data-element-type="paragraph" id="1361954466" style="transition:opacity 1s ease-in-out 0s;display:block;line-height:initial;" data-version="4"><p class="text-align-left size-24" style="letter-spacing: 0.05em;"><span class="font-size-24" style="color: rgb(248, 153, 29); font-weight: bold; display: unset;">Areas We Serve</span></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Blue-River-Cleaning-Services" class="font-size-22" style="font-weight: bold; color: rgb(5, 151, 223); display: unset;">Blue River</a></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Breckenridge-Cleaning-Services" class="font-size-22" style="font-weight: bold; color: rgb(5, 151, 223); display: unset;">Breckenridge</a></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Copper-Mountain-Cleaning-Services" class="font-size-22" style="background-color: rgba(0, 0, 0, 0); font-weight: bold; color: rgb(5, 151, 223); display: unset;">Copper Mountain</a></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Dillon-Cleaning-Services" class="font-size-22" style="background-color: rgba(0, 0, 0, 0); font-weight: bold; color: rgb(5, 151, 223); display: unset;">Dillon</a></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Frisco-Cleaning-Services" class="font-size-22" style="background-color: rgba(0, 0, 0, 0); font-weight: bold; color: rgb(5, 151, 223); display: unset;">Frisco</a></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Keystone-Cleaning-Services" class="font-size-22" style="background-color: rgba(0, 0, 0, 0); font-weight: bold; color: rgb(5, 151, 223); display: unset;">Keystone</a></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Silverthorne-Cleaning-Services" class="font-size-22" style="font-weight: bold; color: rgb(5, 151, 223); display: unset;">Silverthorne</a></p><p class="text-align-left size-22" style="letter-spacing: 0.05em;"><a href="/Vail-Cleaning-Services" class="font-size-22" style="font-weight: bold; color: rgb(5, 151, 223); display: unset;">Vail</a></p></div></div>
+            </div>
+            </div>
+                <div class="u_1465871800 dmRespRow dmFooterContent fullBleedChanged fullBleedMode" id="1465871800"> <div class="dmRespColsWrapper" id="1995794985"> <div class="u_1251437857 dmRespCol dmFooterCol small-12 large-6 medium-6" id="1251437857"> <div class="u_1499611533 dmNewParagraph ql-disabled" data-element-type="paragraph" id="1499611533" style="transition: opacity 1s ease-in-out 0s;" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><span style="display: unset; text-decoration: none;">&copy; 2020 Team Clean. Privacy Policy&nbsp;</span></p></div></div>
+                    <div class="u_1216468951 dmRespCol small-12 large-6 medium-6" id="1216468951"> <div class="dmNewParagraph u_1584423458 ql-disabled" data-element-type="paragraph" id="1584423458" style="transition: none 0s ease 0s;" data-version="4"><p class="text-align-center" style="letter-spacing: 0.05em;"><a href="https://www.unyworks.com/" target="_blank" style="display: unset;">Built With Love By UNYWORKS</a></p></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+                <div id="1236746004" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function loadCSS(link) {
+        try {
+            var urlParams = new URLSearchParams(window.location.search);
+            var noCSS = !!urlParams.get('nocss');
+            var cssTimeout = urlParams.get('cssTimeout') || 0;
+
+            if (noCSS) {
+                return;
+            }
+            requestIdleCallback(function () {
+                window.setTimeout(function () {
+                    link.onload = null;
+                    link.rel = 'stylesheet';
+                    link.type = 'text/css'
+                }, parseInt(cssTimeout, 10));
+            });
+        } catch (e) {/* Never fail - this is just a tool for measurements */}
+    }
+</script>
+
+<link rel="preload" href="https://irp.cdn-website.com/fonts/css?family=Belgrano:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Cardo:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Amiko:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|ABeeZee:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Poppins:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Paytone+One:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Lato:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Arvo:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Rubik:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Source+Sans+Pro:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic&amp;subset=latin-ext&amp;display=swap"  as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-new-->
+<link rel="preload" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static.cdn-website.com/mnlt/production/2564/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-new.min.css" />
+
+<!-- End of RT CSS Include -->
+
+
+
+
+<link rel="preload" href="https://irp.cdn-website.com/WIDGET_CSS/production_2564/482ead2bf9bc40b752643be4f02592c8.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {height: auto;}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+    body[data-page-alias="home"] #dm [data-show-on-page-only="home"]{
+        display: block !important;
+    }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link rel="preload" href="https://irp.cdn-website.com/b8f1a169/files/b8f1a169_1.min.css?v=22" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+<style id="customWidgetStyle" type="text/css">
+
+</style>
+<style id="innerPagesStyle" type="text/css">
+
+</style>
+
+<style id="additionalGlobalCss" type="text/css">
+</style>
+
+<!-- Page CSS -->
+<link rel="preload" href="https://irp.cdn-website.com/b8f1a169/files/b8f1a169_home_1.min.css?v=22" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<style id="pagestyle" type="text/css">
+
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-34, .size-34, .size-34 > font { font-size: 34px !important; }.font-size-34, .size-34, .size-34 > font { font-size: 34px !important; }.font-size-34, .size-34, .size-34 > font { font-size: 34px !important; }.font-size-34, .size-34, .size-34 > font { font-size: 34px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-28, .size-28, .size-28 > font { font-size: 28px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-17, .size-17, .size-17 > font { font-size: 17px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-17, .size-17, .size-17 > font { font-size: 17px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-30, .size-30, .size-30 > font { font-size: 30px !important; }.font-size-21, .size-21, .size-21 > font { font-size: 21px !important; }.font-size-30, .size-30, .size-30 > font { font-size: 30px !important; }.font-size-21, .size-21, .size-21 > font { font-size: 21px !important; }.font-size-17, .size-17, .size-17 > font { font-size: 17px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-17, .size-17, .size-17 > font { font-size: 17px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-15, .size-15, .size-15 > font { font-size: 15px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-15, .size-15, .size-15 > font { font-size: 15px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-17, .size-17, .size-17 > font { font-size: 17px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-17, .size-17, .size-17 > font { font-size: 17px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-13, .size-13, .size-13 > font { font-size: 13px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-20, .size-20, .size-20 > font { font-size: 20px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }.font-size-22, .size-22, .size-22 > font { font-size: 22px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+
+
+<!-- ========= JS Section ========= -->
+
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "14..64";
+    var build = "2022-05-26T12_51_37";
+    window['v'+'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2022-05-26T12_51_37";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            }
+            else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+
+
+</script>
+<!-- Load jQuery -->
+<script type="text/javascript" src="https://static.cdn-website.com/libs/jquery/jquery-3.6.0.min.js"></script>
+<!-- End Load jQuery -->
+
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var jquery = window.$;
+    Object.defineProperty(window, '$', {
+        get() {
+            return jquery;
+        },
+        set() {
+            console.warn("Trying to over-write the global jquery object!");
+        }
+    });
+</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+<script>
+    var shouldMonitorImages = false;
+    var numOfImageLoadErrorsReported = 0;
+    if(shouldMonitorImages) {
+        window.addEventListener('error', function(event) {
+            // log secured resources failures
+            if(event.target && event.target.src && event.target.src.includes
+                && event.target.src.includes('/s/')
+                && !event.target.src.includes('/_dm/s/rt/')) {
+                if (!window.fetch || numOfImageLoadErrorsReported > 4){
+                    return;
+                }
+                try {
+                    numOfImageLoadErrorsReported++;
+                    return fetch('/_dm/s/rt/actions/log/INFO', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ data: {
+                                tags: 'imageFailedToLoad',
+                                eventType: event.type,
+                                image: event.target.src,
+                                href: window.location.href
+                            } })
+                    });
+                } catch (error) {
+                    console.log(error);
+                }
+
+            }
+        }, { capture: true });
+    }
+
+</script>
+<!-- HEAD RT JS Include -->
+<script>
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["facebook.accessToken"] = '126515034112906|8vv7JhnEegS8qz43fIOZjxGZReA';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["feature.flag.contactUsNewForm"] = 'true';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["google.places.key"] = 'AIzaSyBAwUOqPUB1CU31yDztoZYaUE7sPv4ktEI';
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.opencage.token"] = '319e14f32bcce967ba55cd263478796d';
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["feature.flag.mappy.kml"] =false;
+    rtCommonProps["common.resources.dist.cdn"]=true;
+    rtCommonProps["common.build.dist.folder"]='production/2564';
+    rtCommonProps["common.resources.cdn.host"]='https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"]='https://static.cdn-website.com/mnlt/production/2564';
+    rtCommonProps["import.images.storage.useImageCDN"]=true;
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"]=true;
+    rtCommonProps["feature.flag.runtime.photoswipe.fix"]=true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"]=true;
+    rtCommonProps["feature.flag.runtime.newAnimation.respectCssAnimationProps.enabled"]=true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"]=true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"]=true;
+
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'here';
+    rtCommonProps['common.map.defaults.radiusSize'] = '1500';
+    rtCommonProps['common.map.defaults.radiusBg'] = 'rgba(255, 255, 255, 0.4)';
+    rtCommonProps['common.map.defaults.strokeColor'] = 'rgba(255, 255, 255, 1)';
+    rtCommonProps['common.map.defaults.strokeSize'] = '2';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['editor.infra.noPrefixedChanges'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["facebook.api.version"] = '7.0';
+    rtCommonProps["runtime.save.restore.function.bind"] =true;
+    rtCommonProps["feature.flag.photo.gallery.exact.size"] =false;
+    rtCommonProps["feature.flag.photo.gallery.lazy"] =true;
+    rtCommonProps["store.handleItemId.enabled"] =true;
+    rtCommonProps["new.store.fix.ecwid.back.bug"] =true;
+    rtCommonProps["new.store.accountPage.ecwid.signIn.fix"] =true;
+    rtCommonProps["fix.ecwid.sign.in.page.with.return.url"] =true;
+    rtCommonProps["site.runtime.video.background.ssr"] =true;
+    rtCommonProps["geocode.search.localize"] =false;
+    rtCommonProps["feature.flag.runtime.newAnimation.asyncInit.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+</script>
+<script src="https://static.cdn-website.com/mnlt/production/2564/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js" ></script>
+<!-- End of HEAD RT JS Include -->
+<script src="https://static.cdn-website.com/mnlt/production/2564/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js" ></script>
+<script>jQuery.DM.updateWidthAndHeight();
+$(window).resize(function () {
+
+});
+$(window).bind("orientationchange", function (e) {
+    $.layoutManager.initLayout();
+
+});
+$(document).resize(function () {
+
+});
+</script>
+
+<script type="text/javascript" id="d_track_campaign">
+    (function() {
+        var campaign = (/utm_campaign=([^&]*)/).exec(window.location.search);
+
+        if (campaign && campaign != null && campaign.length > 1) {
+            campaign = campaign[1];
+            document.cookie = "_dm_rt_campaign=" + campaign + ";expires=" + new Date().getTime() + 24*60*60*1000 + ";domain=" + window.location.hostname + ";path=/";
+        }
+    }());
+</script>
+<script type="text/javascript" >
+    var _dm_gaq = {};
+    var _gaq = _gaq || [];
+    var _dm_insite = [];
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TYNGREDQE"></script>
+<script type="text/javascript" id="d_track_ga">
+    _dm_gaq.siteAlias = 'b8f1a169';
+    _dm_gaq.systemAggregatedGaqID = '';
+    _dm_gaq.externalGaqID = 'G-8TYNGREDQE';
+    _dm_gaq.gaAggregatedEventAttributes = {
+        'site_alias':  _dm_gaq.siteAlias,
+        'product': 'DM_DIRECT',
+        'plan': 'BUSINESS_PLUS',
+        'dfooter': 'false',
+        'sitetype': '1',
+        'pwaEnabled': 'true'
+    }
+
+    _dm_gaq.pushEvent = function(trackingId, event, category, label, value, additionalParams) {
+        var initialProps = {
+            send_to: trackingId,
+            event_category: category,
+            event_label: label,
+            value: value
+        }
+        additionalParams = additionalParams || {};
+        var eventProps = $.extend({}, initialProps, additionalParams, trackingId === _dm_gaq.systemAggregatedGaqID?_dm_gaq.gaAggregatedEventAttributes:{});
+        gtag('event', event, eventProps);
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    function pushInsiteImpressions(id) {
+        $.each(_dm_insite, function(idx, rule) {
+            _dm_gaq.pushEvent(id, 'insite_impression', 'insite', rule.ruleType + '__' + rule.ruleId);
+        });
+    }
+
+    if(_dm_gaq.systemAggregatedGaqID){
+        // track aggregated account
+        gtag('config', '', {
+            'send_page_view': false,
+            'anonymize_ip': true,
+            'transport_type': 'beacon',
+            'custom_map': {'dimension1': 'site_alias', 'dimension2': 'product', 'dimension3': 'dFooter', 'dimension4': 'sitetype'}
+        });
+        gtag('set', 'developer_id.dMDU5Nj', true);
+
+        _dm_gaq.pushEvent('', 'page_view');
+        pushInsiteImpressions(_dm_gaq.systemAggregatedGaqID);
+    }
+
+    if(_dm_gaq.externalGaqID && _dm_gaq.externalGaqID!= '') {
+        gtag('config', 'G-8TYNGREDQE', {
+            'send_page_view': false,
+            'anonymize_ip': true,
+            'transport_type': 'beacon',
+            'linker': {
+                'domains': ['summitteamclean.com']
+            }
+        });
+        _dm_gaq.pushEvent('G-8TYNGREDQE', 'page_view');
+        pushInsiteImpressions(_dm_gaq.externalGaqID);
+    }
+
+</script>
+<script type="text/javascript" id="d_track_sp">
+    ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+        p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+        };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+        n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+    window.dmsnowplow  = window.snowplow;
+
+    dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+        appId: 'b8f1a169'
+    });
+
+    dmsnowplow('trackPageView')
+    $.each(_dm_insite, function(idx, rule) {
+        //('trackStructEvent', 'category','action','label','property','value');
+        // Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+        // the tracking is in popup.js
+        if (rule.actionName !== "popup") {
+            dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+        }
+        $(document).ready(function(){
+            $.DM.events.trigger('event-ruleTriggered', {value: rule})}
+        );
+    });
+</script>
+<div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides.
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root"
+     data-locale="en"></div>
+<!-- Alias: b8f1a169 -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+    <div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+    <div class="dmPopupTitle"> <span></span> Share by:</div>
+    <div class="data"></div>
+</div><script id="d_track_personalization">
+    // Collects client data and updates cookies used by smart sites
+    var expireDays = 365,visitLength = 30 * 60000;
+    $.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), expireDays);
+    function setSmartSiteCookies() {
+        setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+    }
+    $.DM.events.on("afterAjax", setSmartSiteCookies);
+    setSmartSiteCookies();
+</script>
+<script type="text/javascript">
+
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+</script>
+
+<script>
+
+    jQuery(window).on('load', function () {
+        try {
+            jQuery.DM.updateIOSHeight();
+        } catch (e) {
+        }
+
+    });
+</script>
+<script>
+    dmAPI.loadScript(
+        window.rtCommonProps['common.resources.cdn.host'] + '/libs/lozad/1.15.0/lozad.min.js',
+        function () {
+            dmAPI.runOnReady('lozadInit', function () {
+                window.document.querySelectorAll('img.lazy').forEach(function (img) {
+                    img.addEventListener('load', function (event) {
+                        var img = event.target;
+                        img.style.filter = 'blur(0)';
+                        setTimeout(function () {
+                            $(img).closest('.imageWidget').addClass('lazyLoaded');
+                        }, 250)
+                    });
+                });
+                lozad('.lazy', {
+                    threshold: 0.1,
+                    loaded: function (element) {
+                        if (element.getAttribute('data-background-image')) {
+                            element.style.setProperty(
+                                'background-image',
+                                "url('" + element.getAttribute('data-background-image') + "')",
+                                "important"
+                            );
+                        }
+                    }
+                }).observe();
+            });
+        }
+    );
+</script>
+<script id="ssr-script" type="text/javascript">
+</script>
+<!--  End Script tags -->
+
+<!--  Begin Body End Markup -->
+google-site-verification: google6db5cda8dd643177.html<!--  End Body End Markup -->
+
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+</body>
+</html>
